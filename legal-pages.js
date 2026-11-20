@@ -1,4 +1,4 @@
-/* AI Video Quiz — contenu et affichage des pages légales (FR / EN / AR).
+/* Préparez votre IELTS — contenu et affichage des pages légales (FR / EN / AR).
    Pages : privacy.html, terms.html, legal-notice.html, cookies.html, contact.html
    Pour modifier un texte (ex. l'e-mail de contact), il suffit de le changer ici, une seule fois. */
 (function () {
@@ -9,7 +9,7 @@
         "privacy": {
             "kicker": "CONFIDENTIALITE",
             "title": "Politique de confidentialite",
-            "lead": "Cette page explique de maniere generale quelles donnees AI Video Quiz peut traiter et dans quel but.",
+            "lead": "Cette page explique de maniere generale quelles donnees le service Préparez votre IELTS peut traiter et dans quel but.",
             "blocks": [
                 [
                     "1. Donnees de compte",
@@ -29,7 +29,7 @@
                 ],
                 [
                     "5. Questions generees par IA",
-                    "Pour generer les questions, des informations issues de la video, notamment son texte disponible, peuvent etre transmises au service d intelligence artificielle utilise par AI Video Quiz."
+                    "Pour generer les questions, des informations issues de la video, notamment son texte disponible, peuvent etre transmises au service d intelligence artificielle utilise par Préparez votre IELTS."
                 ],
                 [
                     "6. Finalites",
@@ -56,11 +56,11 @@
         "terms": {
             "kicker": "CONDITIONS",
             "title": "Conditions d utilisation",
-            "lead": "Les presentes conditions encadrent l utilisation de AI Video Quiz.",
+            "lead": "Les presentes conditions encadrent l utilisation de Préparez votre IELTS.",
             "blocks": [
                 [
                     "1. Utilisation du service",
-                    "AI Video Quiz permet de regarder des videos YouTube et de repondre a des questions generees a partir de leur contenu."
+                    "Préparez votre IELTS permet de s entrainer a l examen IELTS avec des videos YouTube pour le Listening et des sessions de Speaking avec un examinateur IA."
                 ],
                 [
                     "2. Compte",
@@ -84,7 +84,7 @@
                 ],
                 [
                     "7. Disponibilite",
-                    "AI Video Quiz peut etre modifie, suspendu ou interrompu temporairement pour maintenance, securite ou evolution technique."
+                    "Le service Préparez votre IELTS peut etre modifie, suspendu ou interrompu temporairement pour maintenance, securite ou evolution technique."
                 ],
                 [
                     "8. Compte et donnees",
@@ -103,7 +103,7 @@
             "blocks": [
                 [
                     "Editeur du site",
-                    "Nom / raison sociale : Mustapha RHALLAB<br>Adresse : Hay Salama 3, Groupe 1, Bloc E, N°23, 20700 Casablanca, Maroc<br>E-mail : <bdi dir=\"ltr\"><a href=\"mailto:myshopts@gmail.com\">myshopts@gmail.com</a></bdi><br><bdi dir=\"ltr\"><a href=\"mailto:musplay2023@gmail.com\">musplay2023@gmail.com</a></bdi>"
+                    "Nom / raison sociale : Mustapha RHALLAB<br>E-mail : <bdi dir=\"ltr\"><a href=\"mailto:myshopts@gmail.com\">myshopts@gmail.com</a></bdi><br><bdi dir=\"ltr\"><a href=\"mailto:musplay2023@gmail.com\">musplay2023@gmail.com</a></bdi>"
                 ],
                 [
                     "Responsable de publication",
@@ -115,14 +115,14 @@
                 ],
                 [
                     "Videos",
-                    "Les videos sont diffusees depuis YouTube au moyen de son lecteur integre. AI Video Quiz ne revendique pas la propriete des videos diffusees par des tiers."
+                    "Les videos sont diffusees depuis YouTube au moyen de son lecteur integre. Préparez votre IELTS ne revendique pas la propriete des videos diffusees par des tiers."
                 ]
             ]
         },
         "cookies": {
             "kicker": "COOKIES",
             "title": "Cookies et technologies similaires",
-            "lead": "AI Video Quiz peut utiliser des cookies, le stockage local du navigateur et des technologies de session pour faire fonctionner le service.",
+            "lead": "Préparez votre IELTS peut utiliser des cookies, le stockage local du navigateur et des technologies de session pour faire fonctionner le service.",
             "blocks": [
                 [
                     "Stockage local",
@@ -148,7 +148,7 @@
         },
         "contact": {
             "kicker": "CONTACT",
-            "title": "Contactez AI Video Quiz",
+            "title": "Nous contacter",
             "lead": "Pour une question, un probleme technique ou une demande concernant vos donnees, utilisez les coordonnees officielles du service.",
             "blocks": [
                 [
@@ -170,7 +170,7 @@
         "privacy": {
             "kicker": "PRIVACY",
             "title": "Privacy Policy",
-            "lead": "This page generally explains what data AI Video Quiz may process and why.",
+            "lead": "This page generally explains what data Prepare Your IELTS may process and why.",
             "blocks": [
                 [
                     "1. Account data",
@@ -190,7 +190,7 @@
                 ],
                 [
                     "5. AI-generated questions",
-                    "To generate questions, information from the video, including available text, may be sent to the artificial intelligence service used by AI Video Quiz."
+                    "To generate questions, information from the video, including available text, may be sent to the artificial intelligence service used by Prepare Your IELTS."
                 ],
                 [
                     "6. Purposes",
@@ -217,11 +217,11 @@
         "terms": {
             "kicker": "TERMS",
             "title": "Terms of Use",
-            "lead": "These terms govern the use of AI Video Quiz.",
+            "lead": "These terms govern the use of Prepare Your IELTS.",
             "blocks": [
                 [
                     "1. Service use",
-                    "AI Video Quiz lets users watch YouTube videos and answer questions generated from their content."
+                    "Prepare Your IELTS lets users practise for the IELTS exam with YouTube videos for Listening and Speaking sessions with an AI examiner."
                 ],
                 [
                     "2. Account",
@@ -245,7 +245,7 @@
                 ],
                 [
                     "7. Availability",
-                    "AI Video Quiz may be modified, temporarily suspended or interrupted for maintenance, security or technical changes."
+                    "The Prepare Your IELTS service may be modified, temporarily suspended or interrupted for maintenance, security or technical changes."
                 ],
                 [
                     "8. Account and data",
@@ -264,7 +264,7 @@
             "blocks": [
                 [
                     "Site publisher",
-                    "Name / company: Mustapha RHALLAB<br>Address: Hay Salama 3, Groupe 1, Bloc E, N°23, 20700 Casablanca, Morocco<br>Email: <bdi dir=\"ltr\"><a href=\"mailto:myshopts@gmail.com\">myshopts@gmail.com</a></bdi><br><bdi dir=\"ltr\"><a href=\"mailto:musplay2023@gmail.com\">musplay2023@gmail.com</a></bdi>"
+                    "Name / company: Mustapha RHALLAB<br>Email: <bdi dir=\"ltr\"><a href=\"mailto:myshopts@gmail.com\">myshopts@gmail.com</a></bdi><br><bdi dir=\"ltr\"><a href=\"mailto:musplay2023@gmail.com\">musplay2023@gmail.com</a></bdi>"
                 ],
                 [
                     "Publication manager",
@@ -276,14 +276,14 @@
                 ],
                 [
                     "Videos",
-                    "Videos are displayed through the embedded YouTube player. AI Video Quiz does not claim ownership of third-party videos."
+                    "Videos are displayed through the embedded YouTube player. Prepare Your IELTS does not claim ownership of third-party videos."
                 ]
             ]
         },
         "cookies": {
             "kicker": "COOKIES",
             "title": "Cookies and Similar Technologies",
-            "lead": "AI Video Quiz may use cookies, browser local storage and session technologies needed to operate the service.",
+            "lead": "Prepare Your IELTS may use cookies, browser local storage and session technologies needed to operate the service.",
             "blocks": [
                 [
                     "Local storage",
@@ -309,7 +309,7 @@
         },
         "contact": {
             "kicker": "CONTACT",
-            "title": "Contact AI Video Quiz",
+            "title": "Contact us",
             "lead": "For a question, technical issue or request about your data, use the official service contact details.",
             "blocks": [
                 [
@@ -331,7 +331,7 @@
         "privacy": {
             "kicker": "الخصوصية",
             "title": "سياسة الخصوصية",
-            "lead": "توضح هذه الصفحة بشكل عام البيانات التي قد يعالجها AI Video Quiz والغرض من استخدامها.",
+            "lead": "توضح هذه الصفحة بشكل عام البيانات التي قد يعالجها حضّر لاختبار IELTS والغرض من استخدامها.",
             "blocks": [
                 [
                     "1. بيانات الحساب",
@@ -351,7 +351,7 @@
                 ],
                 [
                     "5. الأسئلة المولدة بالذكاء الاصطناعي",
-                    "لتوليد الأسئلة، قد يتم إرسال معلومات من الفيديو، بما في ذلك النص المتاح، إلى خدمة الذكاء الاصطناعي المستخدمة من طرف AI Video Quiz."
+                    "لتوليد الأسئلة، قد يتم إرسال معلومات من الفيديو، بما في ذلك النص المتاح، إلى خدمة الذكاء الاصطناعي المستخدمة من طرف حضّر لاختبار IELTS."
                 ],
                 [
                     "6. الأغراض",
@@ -378,11 +378,11 @@
         "terms": {
             "kicker": "الشروط",
             "title": "شروط الاستخدام",
-            "lead": "تنظم هذه الشروط استخدام AI Video Quiz.",
+            "lead": "تنظم هذه الشروط استخدام حضّر لاختبار IELTS.",
             "blocks": [
                 [
                     "1. استخدام الخدمة",
-                    "يسمح AI Video Quiz للمستخدمين بمشاهدة فيديوهات YouTube والإجابة عن أسئلة مولدة من محتواها."
+                    "يتيح حضّر لاختبار IELTS للمستخدمين التدرب على اختبار IELTS عبر فيديوهات YouTube للاستماع وجلسات التحدث مع ممتحن بالذكاء الاصطناعي."
                 ],
                 [
                     "2. الحساب",
@@ -406,7 +406,7 @@
                 ],
                 [
                     "7. توفر الخدمة",
-                    "قد يتم تعديل AI Video Quiz أو تعليقه أو إيقافه مؤقتا لأسباب تتعلق بالصيانة أو الأمان أو التطوير التقني."
+                    "قد يتم تعديل خدمة حضّر لاختبار IELTS أو تعليقه أو إيقافه مؤقتا لأسباب تتعلق بالصيانة أو الأمان أو التطوير التقني."
                 ],
                 [
                     "8. الحساب والبيانات",
@@ -425,7 +425,7 @@
             "blocks": [
                 [
                     "ناشر الموقع",
-                    "الاسم / الشركة: <bdi dir=\"ltr\">Mustapha RHALLAB</bdi><br>العنوان: <bdi dir=\"ltr\">Hay Salama 3, Groupe 1, Bloc E, N°23, 20700 Casablanca</bdi>، المغرب<br>البريد الإلكتروني: <bdi dir=\"ltr\"><a href=\"mailto:myshopts@gmail.com\">myshopts@gmail.com</a></bdi><br><bdi dir=\"ltr\"><a href=\"mailto:musplay2023@gmail.com\">musplay2023@gmail.com</a></bdi>"
+                    "الاسم / الشركة: <bdi dir=\"ltr\">Mustapha RHALLAB</bdi><br>البريد الإلكتروني: <bdi dir=\"ltr\"><a href=\"mailto:myshopts@gmail.com\">myshopts@gmail.com</a></bdi><br><bdi dir=\"ltr\"><a href=\"mailto:musplay2023@gmail.com\">musplay2023@gmail.com</a></bdi>"
                 ],
                 [
                     "مسؤول النشر",
@@ -437,14 +437,14 @@
                 ],
                 [
                     "الفيديوهات",
-                    "يتم عرض الفيديوهات عبر مشغل YouTube المدمج. لا يدعي AI Video Quiz ملكية فيديوهات الجهات الأخرى."
+                    "يتم عرض الفيديوهات عبر مشغل YouTube المدمج. لا يدعي حضّر لاختبار IELTS ملكية فيديوهات الجهات الأخرى."
                 ]
             ]
         },
         "cookies": {
             "kicker": "ملفات الارتباط",
             "title": "ملفات الارتباط والتقنيات المشابهة",
-            "lead": "قد يستخدم AI Video Quiz ملفات الارتباط والتخزين المحلي للمتصفح وتقنيات الجلسات اللازمة لتشغيل الخدمة.",
+            "lead": "قد يستخدم حضّر لاختبار IELTS ملفات الارتباط والتخزين المحلي للمتصفح وتقنيات الجلسات اللازمة لتشغيل الخدمة.",
             "blocks": [
                 [
                     "التخزين المحلي",
@@ -470,7 +470,7 @@
         },
         "contact": {
             "kicker": "اتصل بنا",
-            "title": "تواصل مع AI Video Quiz",
+            "title": "تواصل معنا",
             "lead": "لطرح سؤال أو الإبلاغ عن مشكلة تقنية أو طلب يتعلق ببياناتك، استخدم معلومات الاتصال الرسمية للخدمة.",
             "blocks": [
                 [
@@ -498,7 +498,7 @@
         "legal": "Mentions légales",
         "cookies": "Cookies",
         "contact": "Contact",
-        "copyright": "© 2026 AI Video Quiz. Tous droits réservés.",
+        "copyright": "© 2026 Préparez votre IELTS. Tous droits réservés.",
         "noscript": "Active JavaScript pour afficher cette page."
     },
     "en": {
@@ -508,7 +508,7 @@
         "legal": "Legal Notice",
         "cookies": "Cookies",
         "contact": "Contact",
-        "copyright": "© 2026 AI Video Quiz. All rights reserved.",
+        "copyright": "© 2026 Prepare Your IELTS. All rights reserved.",
         "noscript": "Enable JavaScript to display this page."
     },
     "ar": {
@@ -518,10 +518,12 @@
         "legal": "الإشعارات القانونية",
         "cookies": "ملفات الارتباط",
         "contact": "اتصل بنا",
-        "copyright": "© 2026 AI Video Quiz. جميع الحقوق محفوظة.",
+        "copyright": "© 2026 حضّر لاختبار IELTS. جميع الحقوق محفوظة.",
         "noscript": "فعّل JavaScript لعرض هذه الصفحة."
     }
 };
+
+  var BRAND = {"fr": "Préparez votre IELTS", "en": "Prepare Your IELTS", "ar": "حضّر لاختبار IELTS"};
 
   var FILES = { privacy: 'privacy.html', terms: 'terms.html', legal: 'legal-notice.html', cookies: 'cookies.html', contact: 'contact.html' };
   var ORDER = ['privacy', 'terms', 'legal', 'cookies', 'contact'];
@@ -556,7 +558,9 @@
 
     document.documentElement.lang = lang;
     document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-    document.title = 'AI Video Quiz - ' + page.title;
+    document.title = BRAND[lang] + ' - ' + page.title;
+    var brandLink = document.querySelector('.brand');
+    if (brandLink) brandLink.textContent = BRAND[lang];
 
     el('kicker').textContent = page.kicker;
     el('title').textContent = page.title;

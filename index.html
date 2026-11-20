@@ -7,7 +7,7 @@
   <meta name="google-adsense-account" content="ca-pub-4788888438372773">
 
   
-  <title>AI Video Quiz</title>
+  <title>Préparez votre IELTS</title>
 
   <link rel="stylesheet" href="style.css">
   <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
@@ -22,7 +22,7 @@
 <body>
 <div class="app">
   <header>
-    <h1>AI Video Quiz</h1>
+    <h1 data-i18n="brandName">Préparez votre IELTS</h1>
     <p id="headerSubtitle" data-i18n="headerSubtitle">Regarde une video et teste tes connaissances</p>
   </header>
 
@@ -261,7 +261,7 @@
     </div>
 
     <div class="footer-bottom">
-      <span data-i18n="footerCopyright">© 2026 AI Video Quiz. Tous droits reserves.</span>
+      <span data-i18n="footerCopyright">© 2026 Préparez votre IELTS. Tous droits reserves.</span>
       <div class="footer-language">
         <button id="footerLangFr" type="button" onclick="setInterfaceLanguage('fr')">FR</button>
         <button id="footerLangEn" type="button" onclick="setInterfaceLanguage('en')">EN</button>
@@ -298,8 +298,8 @@
 
   const I18N = {
     fr: {
-      headerSubtitle:'Regarde une video et teste tes connaissances', points:'Points', logout:'Deconnexion',
-      login:'Connexion', loginDesc:'Connecte-toi pour sauvegarder ton score.', register:'Creer un compte', registerDesc:'Cree un compte pour sauvegarder ton score.',
+      brandName:'Préparez votre IELTS', headerSubtitle:'Entraine-toi a l IELTS : Listening et Speaking', points:'Points', logout:'Deconnexion',
+      login:'Connexion', loginDesc:'Connecte-toi pour utiliser IELTS Speaking.', register:'Creer un compte', registerDesc:'Cree un compte pour utiliser IELTS Speaking.',
       forgotPassword:'Mot de passe oublié ?', resetEmailRequired:'Saisis ton adresse email pour recevoir le lien de réinitialisation.', resetEmailSent:'Si un compte existe pour cette adresse, un lien de réinitialisation a été envoyé.',
       emailPlaceholder:'Adresse email', passwordPlaceholder:'Mot de passe', connect:'Se connecter', createAccount:'Creer mon compte', noAccount:'Pas encore de compte ?', alreadyAccount:'Deja un compte ?',
       heroKicker:'QUIZ VIDEO + IA', heroTitle:'Regarde. Reponds. Gagne des points.', heroText:'Choisis une langue, regarde une video adaptee a ton theme et reponds a 4 questions generees a partir de son contenu.', chooseLanguage:'Choisir ma langue', seeRules:'Voir les regles',
@@ -308,215 +308,122 @@
       rule1Title:'Choisis ta langue',rule1Text:'Selectionne Francais, English ou Arabe.',rule2Title:'Choisis un theme',rule2Text:'Sport, Sciences, Art culinaire ou Culture generale.',rule3Title:'Regarde la video',rule3Text:'Une video compatible avec ton theme est proposee.',rule4Title:'Reponds a 4 questions',rule4Text:'Les questions sont generees a partir du contenu de la video.',rule5Title:'Gagne ton point',rule5Text:'Si tes 4 reponses sont correctes, tu gagnes 1 point. Sinon, tu gagnes 0 point.',rule6Title:'Continue a jouer',rule6Text:'Tu peux enchainer les videos et accumuler ton score.',rulesNote:'Les videos restent hebergees sur YouTube. Le quiz utilise leur contenu pour generer les questions.',startGame:'Commencer le jeu',backHome:'← Accueil',backRules:'← Regles',
       categoryTitle:'Choisis une categorie',categorySubtitle:"Quel sujet veux-tu decouvrir aujourd'hui ?",catSport:'Sport',catSportText:'Matchs, athletes, techniques et histoire du sport.',catScience:'Sciences',catScienceText:'Science, espace, nature, technologie et decouvertes.',catFood:'Art culinaire',catFoodText:'Cuisine, recettes, gastronomie et savoir-faire.',catCulture:'Culture generale',catCultureText:'Histoire, geographie, civilisation et connaissances.',
       backCategories:'← Retour aux categories',backListening:'← Retour aux videos Listening',ieltsOpenApp:'Ouvrir IELTS Listening →',footerListening:'IELTS Listening',ieltsSpeakingLink:'Speaking IA (connexion requise)',guestHint:'Listening en acces libre. Connecte-toi pour utiliser IELTS Speaking (2 sessions par jour).',videoLoading:"Recherche d'une video...",watchThen:'Regarde la video puis clique sur',startQuiz:'Commencer le quiz',quizInfo:'La video reste visible au-dessus. Reponds aux 4 questions en regardant la video.',submitAnswers:'Valider mes reponses',backQuiz:'← Retour au quiz',resultTitle:'Resultat',roundScoreLabel:'Score de cette partie',totalScore:'Score total',evaluationTitle:'Que penses-tu de cette video ?',interesting:'👍 Interessante',notInteresting:'👎 Pas interessante',tooLongQuestion:'La video etait-elle trop longue ?',no:'Non',aLittle:'Un peu',yes:'Oui',thanks:'Merci pour ton evaluation !',nextVideo:'Video suivante',
-      perfect:'Bravo ! 4/4 bonnes reponses. Tu gagnes 1 point.',notPerfect:'Cette fois, tu ne gagnes pas de point. Il fallait 4 bonnes reponses.',footerTagline:'Regarde, apprends et teste tes connaissances avec des quiz video.', footerIelts:'Preparation IELTS', ieltsKicker:'PREPARATION IELTS', ieltsTitle:'Prepare ton examen IELTS avec des videos', ieltsLead:'Choisis un module pour preparer ton examen IELTS : Listening ou Speaking.', ieltsAll:'Toutes', ieltsListening:'Listening', ieltsSpeaking:'Speaking', ieltsReading:'Reading', ieltsWriting:'Writing', ieltsVocabulary:'Vocabulaire & grammaire', ieltsTips:'Conseils & strategies', ieltsLoading:'Recherche de videos IELTS...', ieltsWatch:'Regarder sur YouTube', ieltsDuration:'Duree', ieltsChannel:'Chaine', ieltsNoVideos:'Aucune video IELTS trouvee pour cette categorie.', ieltsError:'Impossible de charger les videos IELTS pour le moment.', ieltsPublic:'Video publique', ieltsEnglish:'Anglais', footerPlay:'Modules de préparation', footerHome:'Accueil', footerRules:'Regles du jeu', footerCategories:'Categories', footerAbout:'A propos', footerAboutPage:'A propos de nous', footerContact:'Contact', footerLegal:'Legal', footerPrivacy:'Politique de confidentialite', footerTerms:"Conditions d'utilisation", footerLegalNotice:'Mentions legales', footerCookies:'Cookies', footerCopyright:'© 2026 AI Video Quiz. Tous droits reserves.',
+      perfect:'Bravo ! 4/4 bonnes reponses. Tu gagnes 1 point.',notPerfect:'Cette fois, tu ne gagnes pas de point. Il fallait 4 bonnes reponses.',footerIelts:'Preparation IELTS', ieltsKicker:'PREPARATION IELTS', ieltsTitle:'Prepare ton examen IELTS avec des videos', ieltsLead:'Choisis un module pour preparer ton examen IELTS : Listening ou Speaking.', ieltsAll:'Toutes', ieltsListening:'Listening', ieltsSpeaking:'Speaking', ieltsReading:'Reading', ieltsWriting:'Writing', ieltsVocabulary:'Vocabulaire & grammaire', ieltsTips:'Conseils & strategies', ieltsLoading:'Recherche de videos IELTS...', ieltsWatch:'Regarder sur YouTube', ieltsDuration:'Duree', ieltsChannel:'Chaine', ieltsNoVideos:'Aucune video IELTS trouvee pour cette categorie.', ieltsError:'Impossible de charger les videos IELTS pour le moment.', ieltsPublic:'Video publique', ieltsEnglish:'Anglais', footerPlay:'Modules de préparation', footerHome:'Accueil', footerRules:'Regles du jeu', footerCategories:'Categories', footerAbout:'A propos', footerAboutPage:'A propos de nous', footerContact:'Contact', footerLegal:'Legal', footerPrivacy:'Politique de confidentialite', footerTerms:"Conditions d'utilisation", footerLegalNotice:'Mentions legales', footerCookies:'Cookies', footerCopyright:'© 2026 Préparez votre IELTS. Tous droits reserves.',
     },
     en: {
-      headerSubtitle:'Watch a video and test your knowledge', points:'Points', logout:'Log out',
-      login:'Sign in', loginDesc:'Sign in to save your score.', register:'Create an account', registerDesc:'Create an account to save your score.', forgotPassword:'Forgot password?', resetEmailRequired:'Enter your email address to receive a password reset link.', resetEmailSent:'If an account exists for this address, a password reset link has been sent.', emailPlaceholder:'Email address', passwordPlaceholder:'Password', connect:'Sign in', createAccount:'Create my account', noAccount:"Don't have an account yet?", alreadyAccount:'Already have an account?',
+      brandName:'Prepare Your IELTS', headerSubtitle:'Practise for the IELTS: Listening and Speaking', points:'Points', logout:'Log out',
+      login:'Sign in', loginDesc:'Sign in to use IELTS Speaking.', register:'Create an account', registerDesc:'Create an account to use IELTS Speaking.', forgotPassword:'Forgot password?', resetEmailRequired:'Enter your email address to receive a password reset link.', resetEmailSent:'If an account exists for this address, a password reset link has been sent.', emailPlaceholder:'Email address', passwordPlaceholder:'Password', connect:'Sign in', createAccount:'Create my account', noAccount:"Don't have an account yet?", alreadyAccount:'Already have an account?',
       heroKicker:'VIDEO QUIZ + AI', heroTitle:'Watch. Answer. Earn points.', heroText:'Choose a language, watch a video matched to your topic and answer 4 questions generated from its content.', chooseLanguage:'Choose my language', seeRules:'See the rules',
       languageTitle:'Choose your game language', languageSubtitle:'Videos and questions will be searched in the selected language.', featureVideoTitle:'Selected videos', featureVideoText:'Public videos matched to your chosen topic.', featureAiTitle:'AI-generated questions', featureAiText:'4 questions are generated from the video content.', featureScoreTitle:'Cumulative score', featureScoreText:'4 correct answers give you 1 point.',
       rulesBadge:'GAME RULES', rulesTitle:'How to play', rulesSubtitle:'The principle is simple: one video, 4 questions, one point if you answer all 4 correctly.',
       rule1Title:'Choose your language',rule1Text:'Select French, English or Arabic.',rule2Title:'Choose a topic',rule2Text:'Sport, Science, Culinary Arts or General Knowledge.',rule3Title:'Watch the video',rule3Text:'A compatible video is selected for your topic.',rule4Title:'Answer 4 questions',rule4Text:'Questions are generated from the video content.',rule5Title:'Earn your point',rule5Text:'If all 4 answers are correct, you earn 1 point. Otherwise, you earn 0 points.',rule6Title:'Keep playing',rule6Text:'Continue with more videos and build your score.',rulesNote:'Videos remain hosted on YouTube. The quiz uses their content to generate the questions.',startGame:'Start the game',backHome:'← Home',backRules:'← Rules',
       categoryTitle:'Choose a category',categorySubtitle:'What topic would you like to explore today?',catSport:'Sport',catSportText:'Matches, athletes, techniques and sports history.',catScience:'Science',catScienceText:'Science, space, nature, technology and discoveries.',catFood:'Culinary Arts',catFoodText:'Cooking, recipes, gastronomy and know-how.',catCulture:'General Knowledge',catCultureText:'History, geography, civilizations and knowledge.',
       backCategories:'← Back to categories',backListening:'← Back to Listening videos',ieltsOpenApp:'Open IELTS Listening →',footerListening:'IELTS Listening',ieltsSpeakingLink:'AI Speaking (login required)',guestHint:'Listening is free to use. Sign in to use IELTS Speaking (2 sessions per day).',videoLoading:'Searching for a video...',watchThen:'Watch the video then click',startQuiz:'Start the quiz',quizInfo:'The video remains visible above. Answer the 4 questions while watching the video.',submitAnswers:'Submit my answers',backQuiz:'← Back to quiz',resultTitle:'Result',roundScoreLabel:'Score for this round',totalScore:'Total score',evaluationTitle:'What do you think of this video?',interesting:'👍 Interesting',notInteresting:'👎 Not interesting',tooLongQuestion:'Was the video too long?',no:'No',aLittle:'A little',yes:'Yes',thanks:'Thanks for your feedback!',nextVideo:'Next video',
-      perfect:'Great! 4/4 correct answers. You earn 1 point.',notPerfect:'This time you earn no point. You need 4 correct answers.',footerTagline:'Watch, learn and test your knowledge with video quizzes.', footerIelts:'IELTS Preparation', ieltsKicker:'IELTS PREPARATION', ieltsTitle:'Prepare for your IELTS exam with videos', ieltsLead:'Choose a module to prepare for your IELTS exam: Listening or Speaking.', ieltsAll:'All', ieltsListening:'Listening', ieltsSpeaking:'Speaking', ieltsReading:'Reading', ieltsWriting:'Writing', ieltsVocabulary:'Vocabulary & Grammar', ieltsTips:'Tips & Strategies', ieltsLoading:'Searching for IELTS videos...', ieltsWatch:'Watch on YouTube', ieltsDuration:'Duration', ieltsChannel:'Channel', ieltsNoVideos:'No IELTS videos were found for this category.', ieltsError:'Unable to load IELTS videos right now.', ieltsPublic:'Public video', ieltsEnglish:'English', footerPlay:'Preparation modules', footerHome:'Home', footerRules:'Game rules', footerCategories:'Categories', footerAbout:'About', footerAboutPage:'About AI Video Quiz', footerContact:'Contact', footerLegal:'Legal', footerPrivacy:'Privacy Policy', footerTerms:'Terms of Use', footerLegalNotice:'Legal Notice', footerCookies:'Cookies', footerCopyright:'© 2026 AI Video Quiz. All rights reserved.',
+      perfect:'Great! 4/4 correct answers. You earn 1 point.',notPerfect:'This time you earn no point. You need 4 correct answers.',footerIelts:'IELTS Preparation', ieltsKicker:'IELTS PREPARATION', ieltsTitle:'Prepare for your IELTS exam with videos', ieltsLead:'Choose a module to prepare for your IELTS exam: Listening or Speaking.', ieltsAll:'All', ieltsListening:'Listening', ieltsSpeaking:'Speaking', ieltsReading:'Reading', ieltsWriting:'Writing', ieltsVocabulary:'Vocabulary & Grammar', ieltsTips:'Tips & Strategies', ieltsLoading:'Searching for IELTS videos...', ieltsWatch:'Watch on YouTube', ieltsDuration:'Duration', ieltsChannel:'Channel', ieltsNoVideos:'No IELTS videos were found for this category.', ieltsError:'Unable to load IELTS videos right now.', ieltsPublic:'Public video', ieltsEnglish:'English', footerPlay:'Preparation modules', footerHome:'Home', footerRules:'Game rules', footerCategories:'Categories', footerAbout:'About', footerAboutPage:'About us', footerContact:'Contact', footerLegal:'Legal', footerPrivacy:'Privacy Policy', footerTerms:'Terms of Use', footerLegalNotice:'Legal Notice', footerCookies:'Cookies', footerCopyright:'© 2026 Prepare Your IELTS. All rights reserved.',
     },
     ar: {
-      headerSubtitle:'شاهد فيديو واختبر معلوماتك', points:'النقاط', logout:'تسجيل الخروج',
-      login:'تسجيل الدخول', loginDesc:'سجل الدخول لحفظ نقاطك.', register:'إنشاء حساب', registerDesc:'أنشئ حسابا لحفظ نقاطك.', forgotPassword:'هل نسيت كلمة المرور؟', resetEmailRequired:'أدخل بريدك الإلكتروني لإرسال رابط إعادة تعيين كلمة المرور.', resetEmailSent:'إذا كان هناك حساب بهذا البريد، فسيتم إرسال رابط إعادة تعيين كلمة المرور.', emailPlaceholder:'البريد الإلكتروني', passwordPlaceholder:'كلمة المرور', connect:'تسجيل الدخول', createAccount:'إنشاء حسابي', noAccount:'ليس لديك حساب بعد؟', alreadyAccount:'لديك حساب بالفعل؟',
+      brandName:'حضّر لاختبار IELTS', headerSubtitle:'تدرب على IELTS: الاستماع والتحدث', points:'النقاط', logout:'تسجيل الخروج',
+      login:'تسجيل الدخول', loginDesc:'سجل الدخول لاستخدام IELTS Speaking.', register:'إنشاء حساب', registerDesc:'أنشئ حسابا لاستخدام IELTS Speaking.', forgotPassword:'هل نسيت كلمة المرور؟', resetEmailRequired:'أدخل بريدك الإلكتروني لإرسال رابط إعادة تعيين كلمة المرور.', resetEmailSent:'إذا كان هناك حساب بهذا البريد، فسيتم إرسال رابط إعادة تعيين كلمة المرور.', emailPlaceholder:'البريد الإلكتروني', passwordPlaceholder:'كلمة المرور', connect:'تسجيل الدخول', createAccount:'إنشاء حسابي', noAccount:'ليس لديك حساب بعد؟', alreadyAccount:'لديك حساب بالفعل؟',
       heroKicker:'اختبار فيديو + ذكاء اصطناعي', heroTitle:'شاهد. أجب. اكسب النقاط.', heroText:'اختر اللغة، شاهد فيديو مناسبا لموضوعك، ثم أجب عن 4 أسئلة يتم توليدها من محتوى الفيديو.', chooseLanguage:'اختر لغتي', seeRules:'شاهد القواعد',
       languageTitle:'اختر لغة اللعب', languageSubtitle:'سيتم البحث عن الفيديوهات والأسئلة باللغة التي تختارها.', featureVideoTitle:'فيديوهات مختارة', featureVideoText:'فيديوهات عامة مناسبة للموضوع الذي تختاره.', featureAiTitle:'أسئلة بالذكاء الاصطناعي', featureAiText:'يتم توليد 4 أسئلة من محتوى الفيديو.', featureScoreTitle:'نقاط متراكمة', featureScoreText:'الإجابة الصحيحة عن الأسئلة الأربعة تمنحك نقطة واحدة.',
       rulesBadge:'قواعد اللعبة', rulesTitle:'كيف تلعب؟', rulesSubtitle:'الفكرة بسيطة: فيديو واحد، 4 أسئلة، ونقطة واحدة إذا أجبت عن الأسئلة الأربعة بشكل صحيح.',
       rule1Title:'اختر اللغة',rule1Text:'اختر الفرنسية أو الإنجليزية أو العربية.',rule2Title:'اختر الموضوع',rule2Text:'الرياضة أو العلوم أو فن الطبخ أو الثقافة العامة.',rule3Title:'شاهد الفيديو',rule3Text:'سيتم اقتراح فيديو مناسب للموضوع الذي اخترته.',rule4Title:'أجب عن 4 أسئلة',rule4Text:'يتم توليد الأسئلة من محتوى الفيديو.',rule5Title:'اكسب النقطة',rule5Text:'إذا كانت إجاباتك الأربعة صحيحة تحصل على نقطة واحدة، وإلا تحصل على صفر.',rule6Title:'واصل اللعب',rule6Text:'تابع مشاهدة فيديوهات أخرى واجمع نقاطك.',rulesNote:'تبقى الفيديوهات مستضافة على YouTube، ويستخدم الاختبار محتواها لتوليد الأسئلة.',startGame:'ابدأ اللعبة',backHome:'← الرئيسية',backRules:'← القواعد',
       categoryTitle:'اختر فئة',categorySubtitle:'ما الموضوع الذي تريد اكتشافه اليوم؟',catSport:'الرياضة',catSportText:'مباريات ورياضيون وتقنيات وتاريخ الرياضة.',catScience:'العلوم',catScienceText:'العلوم والفضاء والطبيعة والتكنولوجيا والاكتشافات.',catFood:'فن الطبخ',catFoodText:'الطبخ والوصفات وفنون الطهي والخبرة.',catCulture:'الثقافة العامة',catCultureText:'التاريخ والجغرافيا والحضارات والمعارف.',
       backCategories:'← العودة إلى الفئات',backListening:'← العودة إلى فيديوهات الاستماع',ieltsOpenApp:'افتح IELTS Listening ←',footerListening:'IELTS Listening',ieltsSpeakingLink:'التحدث بالذكاء الاصطناعي (يتطلب تسجيل الدخول)',guestHint:'الاستماع متاح مجانا. سجل الدخول لاستخدام IELTS Speaking (جلستان في اليوم).',videoLoading:'جار البحث عن فيديو...',watchThen:'شاهد الفيديو ثم اضغط على',startQuiz:'ابدأ الاختبار',quizInfo:'يبقى الفيديو ظاهرا في الأعلى. أجب عن الأسئلة الأربعة أثناء مشاهدة الفيديو.',submitAnswers:'تأكيد إجاباتي',backQuiz:'← العودة إلى الاختبار',resultTitle:'النتيجة',roundScoreLabel:'نتيجة هذه الجولة',totalScore:'مجموع النقاط',evaluationTitle:'ما رأيك في هذا الفيديو؟',interesting:'👍 ممتع',notInteresting:'👎 غير ممتع',tooLongQuestion:'هل كان الفيديو طويلا جدا؟',no:'لا',aLittle:'قليلا',yes:'نعم',thanks:'شكرا على تقييمك!',nextVideo:'الفيديو التالي',
-      perfect:'أحسنت! 4/4 إجابات صحيحة. حصلت على نقطة واحدة.',notPerfect:'هذه المرة لم تحصل على نقطة. يجب أن تكون الإجابات الأربعة صحيحة.',footerTagline:'شاهد وتعلم واختبر معلوماتك من خلال اختبارات الفيديو.', footerIelts:'التحضير لامتحان IELTS', ieltsKicker:'التحضير لامتحان IELTS', ieltsTitle:'استعد لامتحان IELTS من خلال الفيديوهات', ieltsLead:'اختر وحدة للتحضير لاختبار IELTS: Listening أو Speaking.', ieltsAll:'الكل', ieltsListening:'الاستماع', ieltsSpeaking:'التحدث', ieltsReading:'القراءة', ieltsWriting:'الكتابة', ieltsVocabulary:'المفردات والقواعد', ieltsTips:'نصائح واستراتيجيات', ieltsLoading:'جار البحث عن فيديوهات IELTS...', ieltsWatch:'شاهد على YouTube', ieltsDuration:'المدة', ieltsChannel:'القناة', ieltsNoVideos:'لم يتم العثور على فيديوهات IELTS لهذه الفئة.', ieltsError:'تعذر تحميل فيديوهات IELTS حاليا.', ieltsPublic:'فيديو عام', ieltsEnglish:'الإنجليزية', footerPlay:'وحدات التحضير', footerHome:'الرئيسية', footerRules:'قواعد اللعبة', footerCategories:'الفئات', footerAbout:'حول الموقع', footerAboutPage:'حول AI Video Quiz', footerContact:'اتصل بنا', footerLegal:'قانوني', footerPrivacy:'سياسة الخصوصية', footerTerms:'شروط الاستخدام', footerLegalNotice:'الإشعارات القانونية', footerCookies:'ملفات الارتباط', footerCopyright:'© 2026 AI Video Quiz. جميع الحقوق محفوظة.',
+      perfect:'أحسنت! 4/4 إجابات صحيحة. حصلت على نقطة واحدة.',notPerfect:'هذه المرة لم تحصل على نقطة. يجب أن تكون الإجابات الأربعة صحيحة.',footerIelts:'التحضير لامتحان IELTS', ieltsKicker:'التحضير لامتحان IELTS', ieltsTitle:'استعد لامتحان IELTS من خلال الفيديوهات', ieltsLead:'اختر وحدة للتحضير لاختبار IELTS: Listening أو Speaking.', ieltsAll:'الكل', ieltsListening:'الاستماع', ieltsSpeaking:'التحدث', ieltsReading:'القراءة', ieltsWriting:'الكتابة', ieltsVocabulary:'المفردات والقواعد', ieltsTips:'نصائح واستراتيجيات', ieltsLoading:'جار البحث عن فيديوهات IELTS...', ieltsWatch:'شاهد على YouTube', ieltsDuration:'المدة', ieltsChannel:'القناة', ieltsNoVideos:'لم يتم العثور على فيديوهات IELTS لهذه الفئة.', ieltsError:'تعذر تحميل فيديوهات IELTS حاليا.', ieltsPublic:'فيديو عام', ieltsEnglish:'الإنجليزية', footerPlay:'وحدات التحضير', footerHome:'الرئيسية', footerRules:'قواعد اللعبة', footerCategories:'الفئات', footerAbout:'حول الموقع', footerAboutPage:'من نحن', footerContact:'اتصل بنا', footerLegal:'قانوني', footerPrivacy:'سياسة الخصوصية', footerTerms:'شروط الاستخدام', footerLegalNotice:'الإشعارات القانونية', footerCookies:'ملفات الارتباط', footerCopyright:'© 2026 حضّر لاختبار IELTS. جميع الحقوق محفوظة.',
     }
   };
 
 
   const INFO_PAGES = {
-      "fr": {
-          "rules": {
-              "kicker": "REGLES DU JEU",
-              "title": "Comment jouer a AI Video Quiz ?",
-              "lead": "Regarde une video, reponds a 4 questions et accumule des points.",
-              "blocks": [
-                  [
-                      "1. Choisis ta langue",
-                      "Choisis le francais, l anglais ou l arabe. La recherche des videos et la generation des questions sont adaptees a la langue choisie."
-                  ],
-                  [
-                      "2. Choisis une categorie",
-                      "Choisis Sport, Sciences, Art culinaire ou Culture generale. Le service recherche des videos correspondant au theme selectionne."
-                  ],
-                  [
-                      "3. Regarde la video",
-                      "Une video YouTube compatible avec le theme est proposee. La video reste diffusee depuis YouTube et n est pas hebergee par AI Video Quiz."
-                  ],
-                  [
-                      "4. Reponds aux 4 questions",
-                      "Les questions sont generees a partir du contenu disponible de la video. Chaque question comporte quatre propositions et une seule bonne reponse."
-                  ],
-                  [
-                      "5. Gagne un point",
-                      "Tu gagnes 1 point uniquement si tes 4 reponses sont correctes. Dans les autres cas, la manche rapporte 0 point."
-                  ],
-                  [
-                      "6. Continue",
-                      "Ton score total est conserve sur ton compte. Tu peux ensuite continuer avec une nouvelle video."
-                  ],
-                  [
-                      "A propos des questions IA",
-                      "Les questions sont generees automatiquement. Elles peuvent donc contenir une erreur ou une formulation imparfaite. Verifie toujours les informations importantes par une source fiable."
-                  ]
-              ]
-          },
-          "about": {
-              "kicker": "A PROPOS",
-              "title": "A propos de AI Video Quiz",
-              "lead": "Un quiz interactif qui transforme le visionnage de videos en experience de jeu et d apprentissage.",
-              "blocks": [
-                  [
-                      "Notre concept",
-                      "AI Video Quiz propose des videos publiques correspondant a une langue et a une categorie, puis genere quatre questions a partir du contenu de la video."
-                  ],
-                  [
-                      "Notre objectif",
-                      "L objectif est de permettre aux utilisateurs de decouvrir des contenus, de tester leur comprehension et de suivre leur progression avec un score cumulatif."
-                  ],
-                  [
-                      "Technologie",
-                      "Le service utilise YouTube pour la diffusion des videos, Firebase pour l authentification et certaines donnees du compte, et un service d intelligence artificielle pour generer les questions."
-                  ],
-                  [
-                      "Contenu video",
-                      "AI Video Quiz ne se presente pas comme l hebergeur des videos YouTube. Les videos sont affichees au moyen du lecteur YouTube et restent soumises aux conditions et regles de YouTube."
-                  ]
-              ]
-          }
-      },
-      "en": {
-          "rules": {
-              "kicker": "GAME RULES",
-              "title": "How to play AI Video Quiz",
-              "lead": "Watch a video, answer 4 questions and build your score.",
-              "blocks": [
-                  [
-                      "1. Choose your language",
-                      "Choose French, English or Arabic. Video search and question generation are adapted to the selected language."
-                  ],
-                  [
-                      "2. Choose a category",
-                      "Choose Sport, Science, Culinary Arts or General Knowledge. The service searches for videos matching the selected topic."
-                  ],
-                  [
-                      "3. Watch the video",
-                      "A YouTube video compatible with the topic is proposed. The video remains hosted and streamed by YouTube."
-                  ],
-                  [
-                      "4. Answer 4 questions",
-                      "Questions are generated from available video content. Each question has four choices and one correct answer."
-                  ],
-                  [
-                      "5. Earn a point",
-                      "You earn 1 point only if all 4 answers are correct. Otherwise, the round gives 0 points."
-                  ],
-                  [
-                      "6. Keep playing",
-                      "Your total score is saved to your account. You can continue with another video."
-                  ],
-                  [
-                      "About AI questions",
-                      "Questions are generated automatically and may contain an error or imperfect wording. Verify important information with a reliable source."
-                  ]
-              ]
-          },
-          "about": {
-              "kicker": "ABOUT",
-              "title": "About AI Video Quiz",
-              "lead": "An interactive quiz that turns video watching into a game and learning experience.",
-              "blocks": [
-                  [
-                      "Our concept",
-                      "AI Video Quiz proposes public videos matching a language and category, then generates four questions from the video content."
-                  ],
-                  [
-                      "Our goal",
-                      "The goal is to help users discover content, test their understanding and track their progress with a cumulative score."
-                  ],
-                  [
-                      "Technology",
-                      "The service uses YouTube to play videos, Firebase for authentication and some account data, and an artificial intelligence service to generate questions."
-                  ],
-                  [
-                      "Video content",
-                      "AI Video Quiz does not present itself as the host of YouTube videos. Videos are displayed through the YouTube player and remain subject to YouTube rules and terms."
-                  ]
-              ]
-          }
-      },
-      "ar": {
-          "rules": {
-              "kicker": "قواعد اللعبة",
-              "title": "كيف تلعب AI Video Quiz؟",
-              "lead": "شاهد فيديو، أجب عن 4 أسئلة واجمع النقاط.",
-              "blocks": [
-                  [
-                      "1. اختر اللغة",
-                      "اختر الفرنسية أو الإنجليزية أو العربية. يتم تكييف البحث عن الفيديوهات وتوليد الأسئلة حسب اللغة المختارة."
-                  ],
-                  [
-                      "2. اختر الفئة",
-                      "اختر الرياضة أو العلوم أو فن الطبخ أو الثقافة العامة. يبحث النظام عن فيديوهات مناسبة للموضوع."
-                  ],
-                  [
-                      "3. شاهد الفيديو",
-                      "يتم اقتراح فيديو من YouTube مناسب للموضوع. يبقى الفيديو مستضافا ويتم تشغيله عبر YouTube."
-                  ],
-                  [
-                      "4. أجب عن 4 أسئلة",
-                      "يتم توليد الأسئلة من المحتوى المتاح للفيديو. لكل سؤال أربعة اختيارات وإجابة صحيحة واحدة."
-                  ],
-                  [
-                      "5. احصل على نقطة",
-                      "تحصل على نقطة واحدة فقط إذا كانت إجاباتك الأربعة صحيحة. وفي غير ذلك تحصل الجولة على صفر."
-                  ],
-                  [
-                      "6. واصل اللعب",
-                      "يتم حفظ مجموع نقاطك في حسابك ويمكنك متابعة اللعب بفيديو آخر."
-                  ],
-                  [
-                      "حول أسئلة الذكاء الاصطناعي",
-                      "يتم توليد الأسئلة تلقائيا وقد تحتوي على خطأ أو صياغة غير دقيقة. تحقق من المعلومات المهمة باستخدام مصدر موثوق."
-                  ]
-              ]
-          },
-          "about": {
-              "kicker": "من نحن",
-              "title": "حول AI Video Quiz",
-              "lead": "اختبار تفاعلي يحول مشاهدة الفيديو إلى تجربة لعب وتعلم.",
-              "blocks": [
-                  [
-                      "فكرتنا",
-                      "يقترح AI Video Quiz فيديوهات عامة مناسبة للغة والفئة المختارة، ثم يولد أربعة أسئلة من محتوى الفيديو."
-                  ],
-                  [
-                      "هدفنا",
-                      "الهدف هو مساعدة المستخدم على اكتشاف محتوى جديد واختبار فهمه ومتابعة تقدمه من خلال مجموع النقاط."
-                  ],
-                  [
-                      "التقنية",
-                      "يستخدم الموقع YouTube لتشغيل الفيديوهات وFirebase للمصادقة وبعض بيانات الحساب، وخدمة ذكاء اصطناعي لتوليد الأسئلة."
-                  ],
-                  [
-                      "محتوى الفيديو",
-                      "لا يقدم AI Video Quiz نفسه باعتباره مستضيفا لفيديوهات YouTube. يتم عرض الفيديوهات عبر مشغل YouTube وتخضع لقواعد وشروط YouTube."
-                  ]
-              ]
-          }
-      }
-  };
+    "fr": {
+        "about": {
+            "kicker": "A PROPOS",
+            "title": "A propos de Préparez votre IELTS",
+            "lead": "Une plateforme pour s entrainer a l examen IELTS : Listening et Speaking.",
+            "blocks": [
+                [
+                    "Notre concept",
+                    "Préparez votre IELTS propose un module Listening, avec des videos d entrainement, et un module Speaking dans lequel vous passez une session avec un examinateur IA."
+                ],
+                [
+                    "Notre objectif",
+                    "L objectif est d aider chacun a se preparer a l IELTS a son rythme, avec des exercices d ecoute et des sessions d expression orale."
+                ],
+                [
+                    "Acces au service",
+                    "Le module Listening est en acces libre. Le module Speaking necessite un compte, et le nombre de sessions par jour est limite."
+                ],
+                [
+                    "Technologie",
+                    "Le service utilise YouTube pour la diffusion des videos, Firebase pour l authentification et certaines donnees du compte, et un service d intelligence artificielle pour le module Speaking."
+                ],
+                [
+                    "Contenu video",
+                    "Préparez votre IELTS ne se presente pas comme l hebergeur des videos YouTube. Les videos sont affichees au moyen du lecteur YouTube et restent soumises aux conditions et regles de YouTube."
+                ]
+            ]
+        }
+    },
+    "en": {
+        "about": {
+            "kicker": "ABOUT",
+            "title": "About Prepare Your IELTS",
+            "lead": "A platform to practise for the IELTS exam: Listening and Speaking.",
+            "blocks": [
+                [
+                    "Our concept",
+                    "Prepare Your IELTS offers a Listening module with practice videos, and a Speaking module where you take a session with an AI examiner."
+                ],
+                [
+                    "Our goal",
+                    "Our goal is to help everyone prepare for the IELTS at their own pace, with listening exercises and speaking sessions."
+                ],
+                [
+                    "Access to the service",
+                    "The Listening module is free to use. The Speaking module requires an account, and the number of sessions per day is limited."
+                ],
+                [
+                    "Technology",
+                    "The service uses YouTube to display videos, Firebase for authentication and some account data, and an artificial intelligence service for the Speaking module."
+                ],
+                [
+                    "Video content",
+                    "Prepare Your IELTS does not present itself as the host of YouTube videos. Videos are displayed through the YouTube player and remain subject to YouTube's terms and rules."
+                ]
+            ]
+        }
+    },
+    "ar": {
+        "about": {
+            "kicker": "من نحن",
+            "title": "حول حضّر لاختبار IELTS",
+            "lead": "منصة للتدرب على اختبار IELTS: الاستماع والتحدث.",
+            "blocks": [
+                [
+                    "فكرتنا",
+                    "تقدم حضّر لاختبار IELTS وحدة للاستماع تضم فيديوهات تدريبية، ووحدة للتحدث تجري فيها جلسة مع ممتحن بالذكاء الاصطناعي."
+                ],
+                [
+                    "هدفنا",
+                    "هدفنا مساعدة الجميع على الاستعداد لاختبار IELTS وفق وتيرتهم، من خلال تمارين الاستماع وجلسات التحدث."
+                ],
+                [
+                    "الوصول إلى الخدمة",
+                    "وحدة الاستماع متاحة مجانا. أما وحدة التحدث فتتطلب حسابا، وعدد الجلسات اليومية محدود."
+                ],
+                [
+                    "التقنية",
+                    "تستخدم الخدمة YouTube لعرض الفيديوهات، وFirebase للمصادقة وبعض بيانات الحساب، وخدمة ذكاء اصطناعي لوحدة التحدث."
+                ],
+                [
+                    "محتوى الفيديو",
+                    "لا تقدم حضّر لاختبار IELTS نفسها على أنها مستضيفة لفيديوهات YouTube. تُعرض الفيديوهات عبر مشغل YouTube وتبقى خاضعة لشروطه وقواعده."
+                ]
+            ]
+        }
+    }
+};
 
   function t(key) { return (I18N[interfaceLanguage] && I18N[interfaceLanguage][key]) || I18N.fr[key] || key; }
 
@@ -554,13 +461,15 @@
   function showHome() {
     afterLogin = null;
     showScreen('ielts');
-    document.title = 'AI Video Quiz';
+    document.title = t('brandName');
     window.scrollTo({top: 0, behavior: 'smooth'});
   }
 
   // IELTS Listening : page du backend, ouverte dans un nouvel onglet
   function openListening() {
-    window.open(API_BASE + '/ielts-app', '_blank', 'noopener');
+    // on transmet l'adresse de cette page : la page Listening s'en sert pour son bouton « Accueil »
+    const home = window.location.origin + window.location.pathname;
+    window.open(API_BASE + '/ielts-app?home=' + encodeURIComponent(home), '_blank', 'noopener');
   }
 
 
@@ -590,7 +499,7 @@
     }).join('');
 
     showScreen('info');
-    document.title = 'AI Video Quiz - ' + page.title;
+    document.title = t('brandName') + ' - ' + page.title;
     window.scrollTo({top: 0, behavior: 'smooth'});
   }
 

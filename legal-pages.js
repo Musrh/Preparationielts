@@ -13,11 +13,11 @@
             "blocks": [
                 [
                     "1. Donnees de compte",
-                    "Lors de la creation d un compte, le service traite notamment l adresse e-mail et les informations necessaires a l authentification."
+                    "Un compte n est necessaire que pour le module Speaking. Lors de la creation d un compte, le service traite notamment l adresse e-mail et les informations necessaires a l authentification. Le module Listening est accessible sans compte."
                 ],
                 [
-                    "2. Donnees de jeu",
-                    "Le service peut enregistrer le score total et, lorsque la fonctionnalite sera activee, l historique des videos jouees, les resultats et les evaluations associees."
+                    "2. Sessions Speaking et scores",
+                    "Pour appliquer la limite quotidienne, le service enregistre le nombre de sessions Speaking effectuees chaque jour avec votre compte. Le score du test Speaking, les corrections et les reponses proposees vous sont affiches a la fin de la session, et vos reponses ne sont pas enregistrees. Le score du test Listening est calcule dans votre navigateur et n est pas enregistre."
                 ],
                 [
                     "3. Firebase",
@@ -28,12 +28,12 @@
                     "Les videos sont diffusees depuis YouTube. Lorsque vous utilisez le lecteur YouTube integre, YouTube peut traiter certaines informations selon ses propres conditions et politiques."
                 ],
                 [
-                    "5. Questions generees par IA",
-                    "Pour generer les questions, des informations issues de la video, notamment son texte disponible, peuvent etre transmises au service d intelligence artificielle utilise par Préparez votre IELTS."
+                    "5. Reconnaissance vocale et intelligence artificielle",
+                    "Pendant une session Speaking, votre voix est transformee en texte par le service de reconnaissance vocale de votre navigateur, selon la politique de l editeur de ce navigateur. Le service ne recoit jamais d audio : seul le texte de vos reponses est envoye, puis transmis a un service d intelligence artificielle afin de produire le score, les corrections et les conseils."
                 ],
                 [
                     "6. Finalites",
-                    "Les donnees sont utilisees pour permettre la connexion, sauvegarder le score, faire fonctionner le jeu, ameliorer le service et repondre aux demandes d assistance."
+                    "Les donnees sont utilisees pour permettre la connexion, appliquer la limite quotidienne de sessions Speaking, faire fonctionner le service, ameliorer le service et repondre aux demandes d assistance."
                 ],
                 [
                     "7. Conservation",
@@ -60,23 +60,23 @@
             "blocks": [
                 [
                     "1. Utilisation du service",
-                    "Préparez votre IELTS permet de s entrainer a l examen IELTS avec des videos YouTube pour le Listening et des sessions de Speaking avec un examinateur IA."
+                    "Préparez votre IELTS permet de s entrainer a l examen IELTS : tests Listening bases sur des videos YouTube, avec un score, et sessions de Speaking avec un examinateur IA, avec un score, des corrections et des reponses proposees."
                 ],
                 [
                     "2. Compte",
-                    "L utilisateur est responsable de l exactitude des informations fournies lors de la creation du compte et de la confidentialite de ses identifiants."
+                    "Un compte est necessaire pour utiliser le module Speaking ; le module Listening est accessible sans compte. L utilisateur est responsable de l exactitude des informations fournies lors de la creation du compte et de la confidentialite de ses identifiants."
                 ],
                 [
-                    "3. Regles du jeu",
-                    "Le systeme de points est celui affiche dans le service : une manche rapporte 1 point lorsque les quatre reponses sont correctes, et 0 point dans les autres cas."
+                    "3. Sessions Speaking",
+                    "Le nombre de sessions Speaking par jour et par compte est limite. L editeur peut modifier cette limite ou suspendre le module a tout moment."
                 ],
                 [
                     "4. Contenu YouTube",
                     "Les videos sont fournies par YouTube. L utilisateur doit respecter les conditions applicables a l utilisation du lecteur et du contenu YouTube."
                 ],
                 [
-                    "5. Questions generees par IA",
-                    "Les questions sont generees automatiquement a partir du contenu disponible. Elles sont fournies a des fins de jeu et d apprentissage et ne constituent pas une garantie d exactitude."
+                    "5. Scores et contenu genere par IA",
+                    "Le score, les corrections et les reponses proposees du module Speaking sont generes par intelligence artificielle ; le score du module Listening est calcule automatiquement a partir des reponses enregistrees pour chaque test. Ces resultats sont fournis a des fins d entrainement et d apprentissage, sont indicatifs, ne constituent pas une garantie d exactitude et ne garantissent aucun resultat a l examen IELTS."
                 ],
                 [
                     "6. Utilisations interdites",
@@ -174,11 +174,11 @@
             "blocks": [
                 [
                     "1. Account data",
-                    "When you create an account, the service processes information such as your email address and data required for authentication."
+                    "An account is only needed for the Speaking module. When you create an account, the service processes information such as your email address and data required for authentication. The Listening module can be used without an account."
                 ],
                 [
-                    "2. Game data",
-                    "The service may store your total score and, when enabled, your played-video history, results and related evaluations."
+                    "2. Speaking sessions and scores",
+                    "To apply the daily limit, the service records how many Speaking sessions are completed each day with your account. The Speaking test score, the corrections and the suggested answers are shown to you at the end of the session, and your answers are not stored. The Listening test score is calculated in your browser and is not stored."
                 ],
                 [
                     "3. Firebase",
@@ -189,12 +189,12 @@
                     "Videos are streamed from YouTube. When you use the embedded YouTube player, YouTube may process certain information under its own terms and policies."
                 ],
                 [
-                    "5. AI-generated questions",
-                    "To generate questions, information from the video, including available text, may be sent to the artificial intelligence service used by Prepare Your IELTS."
+                    "5. Speech recognition and artificial intelligence",
+                    "During a Speaking session, your voice is converted to text by your browser's speech recognition service, under the policy of the browser's publisher. The service never receives audio: only the text of your answers is sent, and it is then passed to an artificial intelligence service to produce the score, corrections and advice."
                 ],
                 [
                     "6. Purposes",
-                    "Data is used to provide login, save scores, operate the game, improve the service and respond to support requests."
+                    "Data is used to provide login, apply the daily Speaking session limit, operate the service, improve the service and respond to support requests."
                 ],
                 [
                     "7. Retention",
@@ -221,23 +221,23 @@
             "blocks": [
                 [
                     "1. Service use",
-                    "Prepare Your IELTS lets users practise for the IELTS exam with YouTube videos for Listening and Speaking sessions with an AI examiner."
+                    "Prepare Your IELTS lets users practise for the IELTS exam: Listening tests based on YouTube videos, with a score, and Speaking sessions with an AI examiner, with a score, corrections and suggested answers."
                 ],
                 [
                     "2. Account",
-                    "Users are responsible for the accuracy of information provided when creating an account and for keeping their credentials confidential."
+                    "An account is required to use the Speaking module; the Listening module can be used without an account. Users are responsible for the accuracy of information provided when creating an account and for keeping their credentials confidential."
                 ],
                 [
-                    "3. Game rules",
-                    "The scoring system displayed by the service applies: a round gives 1 point when all four answers are correct, and 0 points otherwise."
+                    "3. Speaking sessions",
+                    "The number of Speaking sessions per day and per account is limited. The publisher may change this limit or suspend the module at any time."
                 ],
                 [
                     "4. YouTube content",
                     "Videos are provided by YouTube. Users must comply with the terms applicable to use of the YouTube player and content."
                 ],
                 [
-                    "5. AI questions",
-                    "Questions are automatically generated from available content. They are provided for game and learning purposes and are not a guarantee of factual accuracy."
+                    "5. Scores and AI-generated content",
+                    "The Speaking score, corrections and suggested answers are generated by artificial intelligence; the Listening score is calculated automatically from the answers stored for each test. These results are provided for practice and learning purposes, are indicative, are not a guarantee of accuracy and do not guarantee any result in the IELTS exam."
                 ],
                 [
                     "6. Prohibited use",
@@ -335,11 +335,11 @@
             "blocks": [
                 [
                     "1. بيانات الحساب",
-                    "عند إنشاء حساب، تتم معالجة معلومات مثل عنوان البريد الإلكتروني والبيانات اللازمة للمصادقة."
+                    "الحساب مطلوب فقط لوحدة التحدث. عند إنشاء حساب، تتم معالجة معلومات مثل عنوان البريد الإلكتروني والبيانات اللازمة للمصادقة. وحدة الاستماع متاحة دون حساب."
                 ],
                 [
-                    "2. بيانات اللعب",
-                    "قد يتم حفظ مجموع النقاط، وعند تفعيل الميزة، سجل الفيديوهات التي تم لعبها والنتائج والتقييمات المرتبطة بها."
+                    "2. جلسات التحدث والنتائج",
+                    "لتطبيق الحد اليومي، تسجل الخدمة عدد جلسات التحدث المنجزة كل يوم بواسطة حسابك. تُعرض عليك نتيجة اختبار التحدث والتصحيحات والإجابات المقترحة في نهاية الجلسة، ولا يتم حفظ إجاباتك. أما نتيجة اختبار الاستماع فتُحتسب داخل متصفحك ولا يتم حفظها."
                 ],
                 [
                     "3. Firebase",
@@ -350,12 +350,12 @@
                     "يتم تشغيل الفيديوهات من YouTube. عند استخدام مشغل YouTube المدمج، قد يعالج YouTube بعض المعلومات وفقا لشروطه وسياساته الخاصة."
                 ],
                 [
-                    "5. الأسئلة المولدة بالذكاء الاصطناعي",
-                    "لتوليد الأسئلة، قد يتم إرسال معلومات من الفيديو، بما في ذلك النص المتاح، إلى خدمة الذكاء الاصطناعي المستخدمة من طرف حضّر لاختبار IELTS."
+                    "5. التعرف على الكلام والذكاء الاصطناعي",
+                    "أثناء جلسة التحدث، يحوّل متصفحك صوتك إلى نص عبر خدمة التعرف على الكلام الخاصة به، وفق سياسة ناشر المتصفح. لا تستقبل الخدمة أي تسجيل صوتي: يُرسل نص إجاباتك فقط، ثم يُمرَّر إلى خدمة ذكاء اصطناعي لإعداد النتيجة والتصحيحات والنصائح."
                 ],
                 [
                     "6. الأغراض",
-                    "تستخدم البيانات لتوفير تسجيل الدخول وحفظ النقاط وتشغيل اللعبة وتحسين الخدمة والرد على طلبات الدعم."
+                    "تستخدم البيانات لتوفير تسجيل الدخول وتطبيق الحد اليومي لجلسات التحدث وتشغيل الخدمة وتحسين الخدمة والرد على طلبات الدعم."
                 ],
                 [
                     "7. مدة الاحتفاظ",
@@ -382,23 +382,23 @@
             "blocks": [
                 [
                     "1. استخدام الخدمة",
-                    "يتيح حضّر لاختبار IELTS للمستخدمين التدرب على اختبار IELTS عبر فيديوهات YouTube للاستماع وجلسات التحدث مع ممتحن بالذكاء الاصطناعي."
+                    "يتيح حضّر لاختبار IELTS للمستخدمين التدرب على اختبار IELTS: اختبارات استماع مبنية على فيديوهات YouTube مع نتيجة، وجلسات تحدث مع ممتحن بالذكاء الاصطناعي مع نتيجة وتصحيحات وإجابات مقترحة."
                 ],
                 [
                     "2. الحساب",
-                    "المستخدم مسؤول عن صحة المعلومات التي يقدمها عند إنشاء الحساب وعن الحفاظ على سرية بيانات الدخول."
+                    "الحساب مطلوب لاستخدام وحدة التحدث، أما وحدة الاستماع فمتاحة دون حساب. المستخدم مسؤول عن صحة المعلومات التي يقدمها عند إنشاء الحساب وعن الحفاظ على سرية بيانات الدخول."
                 ],
                 [
-                    "3. قواعد اللعبة",
-                    "يطبق نظام النقاط المعروض في الخدمة: تمنح الجولة نقطة واحدة عند صحة الإجابات الأربع، وصفر في الحالات الأخرى."
+                    "3. جلسات التحدث",
+                    "عدد جلسات التحدث في اليوم لكل حساب محدود. يجوز للناشر تعديل هذا الحد أو تعليق الوحدة في أي وقت."
                 ],
                 [
                     "4. محتوى YouTube",
                     "يتم توفير الفيديوهات بواسطة YouTube. يجب على المستخدم احترام الشروط المطبقة على استخدام مشغل ومحتوى YouTube."
                 ],
                 [
-                    "5. أسئلة الذكاء الاصطناعي",
-                    "يتم توليد الأسئلة تلقائيا من المحتوى المتاح. وهي مخصصة للعب والتعلم ولا تشكل ضمانا للدقة الواقعية."
+                    "5. النتائج والمحتوى المولّد بالذكاء الاصطناعي",
+                    "تُولَّد نتيجة وحدة التحدث وتصحيحاتها وإجاباتها المقترحة بالذكاء الاصطناعي، بينما تُحتسب نتيجة وحدة الاستماع تلقائيا انطلاقا من الإجابات المسجلة لكل اختبار. هذه النتائج مخصصة للتدريب والتعلم، وهي إرشادية ولا تشكل ضمانا للدقة ولا تضمن أي نتيجة في اختبار IELTS."
                 ],
                 [
                     "6. الاستخدامات الممنوعة",
@@ -406,7 +406,7 @@
                 ],
                 [
                     "7. توفر الخدمة",
-                    "قد يتم تعديل خدمة حضّر لاختبار IELTS أو تعليقه أو إيقافه مؤقتا لأسباب تتعلق بالصيانة أو الأمان أو التطوير التقني."
+                    "قد يتم تعديل خدمة حضّر لاختبار IELTS أو تعليقها أو إيقافها مؤقتا لأسباب تتعلق بالصيانة أو الأمان أو التطوير التقني."
                 ],
                 [
                     "8. الحساب والبيانات",

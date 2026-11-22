@@ -23,82 +23,22 @@
 <div class="app">
   <header>
     <h1 data-i18n="brandName">Préparez votre IELTS</h1>
-    <p id="headerSubtitle" data-i18n="headerSubtitle">Regarde une video et teste tes connaissances</p>
+    <p id="headerSubtitle" data-i18n="headerSubtitle">Entraîne-toi à l’IELTS : Listening et Speaking</p>
   </header>
 
   <div id="accountBar" class="account-bar hidden">
-    <div class="account-info">
-      <div id="accountEmail"></div>
-      <div class="hidden" aria-hidden="true">
-        <div><span id="accountPointsLabel" data-i18n="points">Points</span> : <span id="accountScore" class="account-score">0</span> <span id="accountMoney" class="account-money"></span></div>
-        <div id="accountDaily" class="account-daily"></div>
-        <div id="accountMode" class="mode-line"></div>
-        <div id="accountHint" class="account-hint"></div>
-      </div>
-    </div>
+    <div class="account-info"><div id="accountEmail"></div></div>
     <div class="account-actions">
-      <span class="hidden" aria-hidden="true">
-        <button id="modeButton" class="withdraw-button mode-button" type="button" onclick="openModePanel()"></button>
-        <button id="withdrawButton" class="withdraw-button" type="button" onclick="openWithdrawPanel()" disabled>Retirer</button>
-      </span>
       <button class="logout-button" onclick="logoutUser()" data-i18n="logout">Deconnexion</button>
     </div>
   </div>
 
   <div id="guestBar" class="account-bar">
     <div class="account-info"><div id="guestHint" data-i18n="guestHint">Listening en acces libre. Connecte-toi pour utiliser IELTS Speaking.</div></div>
-    <div class="account-actions"><button id="guestLoginButton" class="withdraw-button" type="button" onclick="requireLogin()" data-i18n="login">Connexion</button></div>
+    <div class="account-actions"><button id="guestLoginButton" class="withdraw-button" type="button" onclick="openLogin()" data-i18n="login">Connexion</button></div>
   </div>
 
-  <section id="withdrawPanel" class="card withdraw-panel hidden">
-    <h2 id="withdrawTitle"></h2>
-    <p id="withdrawBalance"></p>
-    <p id="withdrawInfo" class="section-subtitle"></p>
-    <label id="wdMethodLabel" for="wdMethod"></label>
-    <select id="wdMethod" onchange="renderWithdrawFields()">
-      <option value="paypal"></option>
-      <option value="card"></option>
-      <option value="cash"></option>
-    </select>
-    <input id="wdFullName" type="text" maxlength="80" autocomplete="name">
-    <input id="wdCountry" type="text" maxlength="60" autocomplete="country-name">
-    <div id="wdFieldsPaypal">
-      <input id="wdPaypalEmail" type="email" maxlength="120" autocomplete="off">
-    </div>
-    <div id="wdFieldsCard" class="hidden">
-      <input id="wdContactEmail" type="email" maxlength="120" autocomplete="email">
-      <input id="wdBankAccount" type="text" maxlength="50" autocomplete="off" inputmode="text">
-      <p id="wdCardNote" class="section-subtitle"></p>
-    </div>
-    <div id="wdFieldsCash" class="hidden">
-      <select id="wdNetwork">
-        <option value="western_union"></option>
-        <option value="wafacash"></option>
-      </select>
-      <input id="wdPhone" type="tel" maxlength="25" autocomplete="tel">
-      <input id="wdCity" type="text" maxlength="60" autocomplete="address-level2">
-      <p id="wdCashNote" class="section-subtitle"></p>
-    </div>
-    <div id="withdrawMessage" class="auth-error hidden"></div>
-    <div class="nav-row">
-      <button id="withdrawConfirm" type="button" onclick="submitWithdraw()"></button>
-      <button id="withdrawCancel" class="ghost-button" type="button" onclick="closeWithdrawPanel()"></button>
-    </div>
-    <div id="withdrawHistory" class="withdraw-history"></div>
-  </section>
 
-  <section id="modePanel" class="card withdraw-panel hidden">
-    <h2 id="modeTitle"></h2>
-    <p id="modeText" class="section-subtitle"></p>
-    <p id="modeInstructions" class="section-subtitle pre-wrap"></p>
-    <div id="depositFields" class="hidden">
-      <div id="depMethodLabel" class="section-subtitle bold"></div>
-      <input id="depPayerName" type="text" maxlength="80" autocomplete="name">
-      <input id="depReference" type="text" maxlength="80" autocomplete="off">
-    </div>
-    <div id="modeMessage" class="auth-error hidden"></div>
-    <div id="modeActions" class="nav-row"></div>
-  </section>
 
   <section id="authScreen" class="card auth-card hidden">
     <div class="nav-row"><button class="back-button" type="button" onclick="showHome()" data-i18n="backHome">← Accueil</button></div>
@@ -194,48 +134,8 @@
   </section>
 
 
-  <section id="gameScreen" class="card hidden">
-    <div class="top-bar">
-      <div><span id="languageBadge" class="badge"></span><span id="categoryBadge" class="badge"></span></div>
-      <div><strong><span data-i18n="points">Points</span> : <span id="scoreDisplay">0</span></strong></div>
-    </div>
-    <button id="backToCategoriesButton" class="back-button" onclick="goBackToCategories()" data-i18n="backListening">← Retour aux videos Listening</button>
-    <div id="videoLoading" class="loading hidden" data-i18n="videoLoading">Recherche d'une video...</div>
-    <div id="videoError" class="error hidden"></div>
-    <div id="videoContent">
-      <div id="videoTitle" class="video-title"></div>
-      <div id="videoChannel" class="video-channel"></div>
-      <div id="videoMeta" class="video-meta"></div>
-      <div class="video-container"><iframe id="youtubePlayer" src="" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
-      <div class="info"><span data-i18n="watchThen">Regarde la video puis clique sur</span> <strong data-i18n="startQuiz">Commencer le quiz</strong>.</div>
-      <button id="startQuizButton" class="primary" onclick="startQuiz()" data-i18n="startQuiz">Commencer le quiz</button>
-      <div id="quizArea" class="hidden">
-        <div class="info" data-i18n="quizInfo">La video reste visible au-dessus. Reponds aux 4 questions en regardant la video.</div>
-        <div id="rewardNote" class="info hidden"></div>
-        <div class="progress"><div id="progressBar" class="progress-bar"></div></div>
-        <div id="questionsContainer"></div>
-        <button id="submitQuizButton" class="primary" onclick="submitQuiz()" data-i18n="submitAnswers">Valider mes reponses</button>
-      </div>
-    </div>
-  </section>
 
-  <section id="resultScreen" class="card hidden">
-    <button class="back-button" onclick="goBackToQuiz()" data-i18n="backQuiz">← Retour au quiz</button>
-    <h2 data-i18n="resultTitle">Resultat</h2>
-    <div class="score-box"><div data-i18n="roundScoreLabel">Score de cette partie</div><div id="roundScore" class="score-number">0</div><div id="resultMessage"></div></div>
-    <div class="info"><span data-i18n="totalScore">Score total</span> : <strong id="finalTotalScore">0</strong></div>
-    <div id="evaluationCard" class="evaluation-card">
-      <div class="evaluation-title" data-i18n="evaluationTitle">Que penses-tu de cette video ?</div>
-      <div class="evaluation-buttons"><button id="likeButton" class="evaluation-button like" onclick="rateVideo('like')" data-i18n="interesting">👍 Interessante</button><button id="dislikeButton" class="evaluation-button dislike" onclick="rateVideo('dislike')" data-i18n="notInteresting">👎 Pas interessante</button></div>
-      <div class="length-question" data-i18n="tooLongQuestion">La video etait-elle trop longue ?</div>
-      <div class="length-buttons"><button id="lengthNo" class="length-button" onclick="rateVideoLength('no')" data-i18n="no">Non</button><button id="lengthMedium" class="length-button" onclick="rateVideoLength('medium')" data-i18n="aLittle">Un peu</button><button id="lengthYes" class="length-button" onclick="rateVideoLength('yes')" data-i18n="yes">Oui</button></div>
-      <div id="evaluationThanks" class="evaluation-thanks hidden" data-i18n="thanks">Merci pour ton evaluation !</div>
-    </div>
-    <button class="primary" onclick="nextVideo()" data-i18n="nextVideo">Video suivante</button>
-    <button class="primary secondary" onclick="goBackToCategories()" data-i18n="backListening">← Retour aux videos Listening</button>
-  </section>
 
-  <section id="globalError" class="error hidden"></section>
 
   <footer class="site-footer">
     <div class="footer-main">
@@ -283,7 +183,6 @@
   const API_BASE =
     'https://ai-video-quiz-backend-production.up.railway.app';
 
-
   const firebaseConfig = {
     apiKey: "AIzaSyBuiap7vkHi1nsK78hAMZSC4ebm0a3r3_Y",
     authDomain: "recettes-2c62a.firebaseapp.com",
@@ -297,49 +196,124 @@
 
   firebase.initializeApp(firebaseConfig);
   const auth = firebase.auth();
-  const db = firebase.firestore();
+  
   let authMode = 'login';
 
   let interfaceLanguage = localStorage.getItem('aivq_interface_language') || 'fr';
 
   const I18N = {
-    fr: {
-      brandName:'Préparez votre IELTS', headerSubtitle:'Entraîne-toi à l’IELTS : Listening et Speaking', points:'Points', logout:'Deconnexion',
-      login:'Connexion', loginDesc:'Connecte-toi pour utiliser IELTS Speaking.', register:'Creer un compte', registerDesc:'Cree un compte pour utiliser IELTS Speaking.',
-      forgotPassword:'Mot de passe oublié ?', resetEmailRequired:'Saisis ton adresse email pour recevoir le lien de réinitialisation.', resetEmailSent:'Si un compte existe pour cette adresse, un lien de réinitialisation a été envoyé.',
-      emailPlaceholder:'Adresse email', passwordPlaceholder:'Mot de passe', connect:'Se connecter', createAccount:'Creer mon compte', noAccount:'Pas encore de compte ?', alreadyAccount:'Deja un compte ?',
-      heroKicker:'QUIZ VIDEO + IA', heroTitle:'Regarde. Reponds. Gagne des points.', heroText:'Choisis une langue, regarde une video adaptee a ton theme et reponds a 4 questions generees a partir de son contenu.', chooseLanguage:'Choisir ma langue', seeRules:'Voir les regles',
-      languageTitle:'Choisis ta langue de jeu', languageSubtitle:'Les videos et les questions seront recherches dans la langue choisie.', featureVideoTitle:'Videos selectionnees', featureVideoText:'Des videos publiques et adaptees au theme choisi.', featureAiTitle:'Questions par IA', featureAiText:'4 questions sont generees a partir du contenu de la video.', featureScoreTitle:'Score cumulatif', featureScoreText:'4 bonnes reponses donnent 1 point.',
-      rulesBadge:'REGLES DU JEU', rulesTitle:'Comment jouer ?', rulesSubtitle:'Le principe est simple : une video, 4 questions, un point si tu reponds correctement aux 4.',
-      rule1Title:'Choisis ta langue',rule1Text:'Selectionne Francais, English ou Arabe.',rule2Title:'Choisis un theme',rule2Text:'Sport, Sciences, Art culinaire ou Culture generale.',rule3Title:'Regarde la video',rule3Text:'Une video compatible avec ton theme est proposee.',rule4Title:'Reponds a 4 questions',rule4Text:'Les questions sont generees a partir du contenu de la video.',rule5Title:'Gagne ton point',rule5Text:'Si tes 4 reponses sont correctes, tu gagnes 1 point. Sinon, tu gagnes 0 point.',rule6Title:'Continue a jouer',rule6Text:'Tu peux enchainer les videos et accumuler ton score.',rulesNote:'Les videos restent hebergees sur YouTube. Le quiz utilise leur contenu pour generer les questions.',startGame:'Commencer le jeu',backHome:'← Accueil',backRules:'← Regles',
-      categoryTitle:'Choisis une categorie',categorySubtitle:"Quel sujet veux-tu decouvrir aujourd'hui ?",catSport:'Sport',catSportText:'Matchs, athletes, techniques et histoire du sport.',catScience:'Sciences',catScienceText:'Science, espace, nature, technologie et decouvertes.',catFood:'Art culinaire',catFoodText:'Cuisine, recettes, gastronomie et savoir-faire.',catCulture:'Culture generale',catCultureText:'Histoire, geographie, civilisation et connaissances.',
-      backCategories:'← Retour aux categories',backListening:'← Retour aux videos Listening',ieltsOpenApp:'Ouvrir IELTS Listening →',footerListening:'IELTS Listening',ieltsSpeakingLink:'Speaking IA (connexion requise)',guestHint:'Listening en acces libre. Connecte-toi pour utiliser IELTS Speaking (sessions limitees par jour).',videoLoading:"Recherche d'une video...",watchThen:'Regarde la video puis clique sur',startQuiz:'Commencer le quiz',quizInfo:'La video reste visible au-dessus. Reponds aux 4 questions en regardant la video.',submitAnswers:'Valider mes reponses',backQuiz:'← Retour au quiz',resultTitle:'Resultat',roundScoreLabel:'Score de cette partie',totalScore:'Score total',evaluationTitle:'Que penses-tu de cette video ?',interesting:'👍 Interessante',notInteresting:'👎 Pas interessante',tooLongQuestion:'La video etait-elle trop longue ?',no:'Non',aLittle:'Un peu',yes:'Oui',thanks:'Merci pour ton evaluation !',nextVideo:'Video suivante',
-      perfect:'Bravo ! 4/4 bonnes reponses. Tu gagnes 1 point.',notPerfect:'Cette fois, tu ne gagnes pas de point. Il fallait 4 bonnes reponses.',footerIelts:'Preparation IELTS', ieltsKicker:'PREPARATION IELTS', ieltsTitle:'Prepare ton examen IELTS avec des videos', ieltsLead:'Choisis un module pour preparer ton examen IELTS : Listening ou Speaking.', ieltsAll:'Toutes', ieltsListening:'Listening', ieltsSpeaking:'Speaking', ieltsReading:'Reading', ieltsWriting:'Writing', ieltsVocabulary:'Vocabulaire & grammaire', ieltsTips:'Conseils & strategies', ieltsLoading:'Recherche de videos IELTS...', ieltsWatch:'Regarder sur YouTube', ieltsDuration:'Duree', ieltsChannel:'Chaine', ieltsNoVideos:'Aucune video IELTS trouvee pour cette categorie.', ieltsError:'Impossible de charger les videos IELTS pour le moment.', ieltsPublic:'Video publique', ieltsEnglish:'Anglais', footerPlay:'Modules de préparation', footerHome:'Accueil', footerRules:'Regles du jeu', footerCategories:'Categories', footerAbout:'A propos', footerAboutPage:'A propos de nous', footerContact:'Contact', footerLegal:'Legal', footerPrivacy:'Politique de confidentialite', footerTerms:"Conditions d'utilisation", footerLegalNotice:'Mentions legales', footerCookies:'Cookies', footerCopyright:'© 2026 Préparez votre IELTS. Tous droits reserves.',
-    },
-    en: {
-      brandName:'Prepare Your IELTS', headerSubtitle:'Practise for the IELTS: Listening and Speaking', points:'Points', logout:'Log out',
-      login:'Sign in', loginDesc:'Sign in to use IELTS Speaking.', register:'Create an account', registerDesc:'Create an account to use IELTS Speaking.', forgotPassword:'Forgot password?', resetEmailRequired:'Enter your email address to receive a password reset link.', resetEmailSent:'If an account exists for this address, a password reset link has been sent.', emailPlaceholder:'Email address', passwordPlaceholder:'Password', connect:'Sign in', createAccount:'Create my account', noAccount:"Don't have an account yet?", alreadyAccount:'Already have an account?',
-      heroKicker:'VIDEO QUIZ + AI', heroTitle:'Watch. Answer. Earn points.', heroText:'Choose a language, watch a video matched to your topic and answer 4 questions generated from its content.', chooseLanguage:'Choose my language', seeRules:'See the rules',
-      languageTitle:'Choose your game language', languageSubtitle:'Videos and questions will be searched in the selected language.', featureVideoTitle:'Selected videos', featureVideoText:'Public videos matched to your chosen topic.', featureAiTitle:'AI-generated questions', featureAiText:'4 questions are generated from the video content.', featureScoreTitle:'Cumulative score', featureScoreText:'4 correct answers give you 1 point.',
-      rulesBadge:'GAME RULES', rulesTitle:'How to play', rulesSubtitle:'The principle is simple: one video, 4 questions, one point if you answer all 4 correctly.',
-      rule1Title:'Choose your language',rule1Text:'Select French, English or Arabic.',rule2Title:'Choose a topic',rule2Text:'Sport, Science, Culinary Arts or General Knowledge.',rule3Title:'Watch the video',rule3Text:'A compatible video is selected for your topic.',rule4Title:'Answer 4 questions',rule4Text:'Questions are generated from the video content.',rule5Title:'Earn your point',rule5Text:'If all 4 answers are correct, you earn 1 point. Otherwise, you earn 0 points.',rule6Title:'Keep playing',rule6Text:'Continue with more videos and build your score.',rulesNote:'Videos remain hosted on YouTube. The quiz uses their content to generate the questions.',startGame:'Start the game',backHome:'← Home',backRules:'← Rules',
-      categoryTitle:'Choose a category',categorySubtitle:'What topic would you like to explore today?',catSport:'Sport',catSportText:'Matches, athletes, techniques and sports history.',catScience:'Science',catScienceText:'Science, space, nature, technology and discoveries.',catFood:'Culinary Arts',catFoodText:'Cooking, recipes, gastronomy and know-how.',catCulture:'General Knowledge',catCultureText:'History, geography, civilizations and knowledge.',
-      backCategories:'← Back to categories',backListening:'← Back to Listening videos',ieltsOpenApp:'Open IELTS Listening →',footerListening:'IELTS Listening',ieltsSpeakingLink:'AI Speaking (login required)',guestHint:'Listening is free to use. Sign in to use IELTS Speaking (limited sessions per day).',videoLoading:'Searching for a video...',watchThen:'Watch the video then click',startQuiz:'Start the quiz',quizInfo:'The video remains visible above. Answer the 4 questions while watching the video.',submitAnswers:'Submit my answers',backQuiz:'← Back to quiz',resultTitle:'Result',roundScoreLabel:'Score for this round',totalScore:'Total score',evaluationTitle:'What do you think of this video?',interesting:'👍 Interesting',notInteresting:'👎 Not interesting',tooLongQuestion:'Was the video too long?',no:'No',aLittle:'A little',yes:'Yes',thanks:'Thanks for your feedback!',nextVideo:'Next video',
-      perfect:'Great! 4/4 correct answers. You earn 1 point.',notPerfect:'This time you earn no point. You need 4 correct answers.',footerIelts:'IELTS Preparation', ieltsKicker:'IELTS PREPARATION', ieltsTitle:'Prepare for your IELTS exam with videos', ieltsLead:'Choose a module to prepare for your IELTS exam: Listening or Speaking.', ieltsAll:'All', ieltsListening:'Listening', ieltsSpeaking:'Speaking', ieltsReading:'Reading', ieltsWriting:'Writing', ieltsVocabulary:'Vocabulary & Grammar', ieltsTips:'Tips & Strategies', ieltsLoading:'Searching for IELTS videos...', ieltsWatch:'Watch on YouTube', ieltsDuration:'Duration', ieltsChannel:'Channel', ieltsNoVideos:'No IELTS videos were found for this category.', ieltsError:'Unable to load IELTS videos right now.', ieltsPublic:'Public video', ieltsEnglish:'English', footerPlay:'Preparation modules', footerHome:'Home', footerRules:'Game rules', footerCategories:'Categories', footerAbout:'About', footerAboutPage:'About us', footerContact:'Contact', footerLegal:'Legal', footerPrivacy:'Privacy Policy', footerTerms:'Terms of Use', footerLegalNotice:'Legal Notice', footerCookies:'Cookies', footerCopyright:'© 2026 Prepare Your IELTS. All rights reserved.',
-    },
-    ar: {
-      brandName:'حضّر لاختبار IELTS', headerSubtitle:'تدرب على IELTS: الاستماع والتحدث', points:'النقاط', logout:'تسجيل الخروج',
-      login:'تسجيل الدخول', loginDesc:'سجل الدخول لاستخدام IELTS Speaking.', register:'إنشاء حساب', registerDesc:'أنشئ حسابا لاستخدام IELTS Speaking.', forgotPassword:'هل نسيت كلمة المرور؟', resetEmailRequired:'أدخل بريدك الإلكتروني لإرسال رابط إعادة تعيين كلمة المرور.', resetEmailSent:'إذا كان هناك حساب بهذا البريد، فسيتم إرسال رابط إعادة تعيين كلمة المرور.', emailPlaceholder:'البريد الإلكتروني', passwordPlaceholder:'كلمة المرور', connect:'تسجيل الدخول', createAccount:'إنشاء حسابي', noAccount:'ليس لديك حساب بعد؟', alreadyAccount:'لديك حساب بالفعل؟',
-      heroKicker:'اختبار فيديو + ذكاء اصطناعي', heroTitle:'شاهد. أجب. اكسب النقاط.', heroText:'اختر اللغة، شاهد فيديو مناسبا لموضوعك، ثم أجب عن 4 أسئلة يتم توليدها من محتوى الفيديو.', chooseLanguage:'اختر لغتي', seeRules:'شاهد القواعد',
-      languageTitle:'اختر لغة اللعب', languageSubtitle:'سيتم البحث عن الفيديوهات والأسئلة باللغة التي تختارها.', featureVideoTitle:'فيديوهات مختارة', featureVideoText:'فيديوهات عامة مناسبة للموضوع الذي تختاره.', featureAiTitle:'أسئلة بالذكاء الاصطناعي', featureAiText:'يتم توليد 4 أسئلة من محتوى الفيديو.', featureScoreTitle:'نقاط متراكمة', featureScoreText:'الإجابة الصحيحة عن الأسئلة الأربعة تمنحك نقطة واحدة.',
-      rulesBadge:'قواعد اللعبة', rulesTitle:'كيف تلعب؟', rulesSubtitle:'الفكرة بسيطة: فيديو واحد، 4 أسئلة، ونقطة واحدة إذا أجبت عن الأسئلة الأربعة بشكل صحيح.',
-      rule1Title:'اختر اللغة',rule1Text:'اختر الفرنسية أو الإنجليزية أو العربية.',rule2Title:'اختر الموضوع',rule2Text:'الرياضة أو العلوم أو فن الطبخ أو الثقافة العامة.',rule3Title:'شاهد الفيديو',rule3Text:'سيتم اقتراح فيديو مناسب للموضوع الذي اخترته.',rule4Title:'أجب عن 4 أسئلة',rule4Text:'يتم توليد الأسئلة من محتوى الفيديو.',rule5Title:'اكسب النقطة',rule5Text:'إذا كانت إجاباتك الأربعة صحيحة تحصل على نقطة واحدة، وإلا تحصل على صفر.',rule6Title:'واصل اللعب',rule6Text:'تابع مشاهدة فيديوهات أخرى واجمع نقاطك.',rulesNote:'تبقى الفيديوهات مستضافة على YouTube، ويستخدم الاختبار محتواها لتوليد الأسئلة.',startGame:'ابدأ اللعبة',backHome:'← الرئيسية',backRules:'← القواعد',
-      categoryTitle:'اختر فئة',categorySubtitle:'ما الموضوع الذي تريد اكتشافه اليوم؟',catSport:'الرياضة',catSportText:'مباريات ورياضيون وتقنيات وتاريخ الرياضة.',catScience:'العلوم',catScienceText:'العلوم والفضاء والطبيعة والتكنولوجيا والاكتشافات.',catFood:'فن الطبخ',catFoodText:'الطبخ والوصفات وفنون الطهي والخبرة.',catCulture:'الثقافة العامة',catCultureText:'التاريخ والجغرافيا والحضارات والمعارف.',
-      backCategories:'← العودة إلى الفئات',backListening:'← العودة إلى فيديوهات الاستماع',ieltsOpenApp:'افتح IELTS Listening ←',footerListening:'IELTS Listening',ieltsSpeakingLink:'التحدث بالذكاء الاصطناعي (يتطلب تسجيل الدخول)',guestHint:'الاستماع متاح مجانا. سجل الدخول لاستخدام IELTS Speaking (عدد الجلسات اليومية محدود).',videoLoading:'جار البحث عن فيديو...',watchThen:'شاهد الفيديو ثم اضغط على',startQuiz:'ابدأ الاختبار',quizInfo:'يبقى الفيديو ظاهرا في الأعلى. أجب عن الأسئلة الأربعة أثناء مشاهدة الفيديو.',submitAnswers:'تأكيد إجاباتي',backQuiz:'← العودة إلى الاختبار',resultTitle:'النتيجة',roundScoreLabel:'نتيجة هذه الجولة',totalScore:'مجموع النقاط',evaluationTitle:'ما رأيك في هذا الفيديو؟',interesting:'👍 ممتع',notInteresting:'👎 غير ممتع',tooLongQuestion:'هل كان الفيديو طويلا جدا؟',no:'لا',aLittle:'قليلا',yes:'نعم',thanks:'شكرا على تقييمك!',nextVideo:'الفيديو التالي',
-      perfect:'أحسنت! 4/4 إجابات صحيحة. حصلت على نقطة واحدة.',notPerfect:'هذه المرة لم تحصل على نقطة. يجب أن تكون الإجابات الأربعة صحيحة.',footerIelts:'التحضير لامتحان IELTS', ieltsKicker:'التحضير لامتحان IELTS', ieltsTitle:'استعد لامتحان IELTS من خلال الفيديوهات', ieltsLead:'اختر وحدة للتحضير لاختبار IELTS: Listening أو Speaking.', ieltsAll:'الكل', ieltsListening:'الاستماع', ieltsSpeaking:'التحدث', ieltsReading:'القراءة', ieltsWriting:'الكتابة', ieltsVocabulary:'المفردات والقواعد', ieltsTips:'نصائح واستراتيجيات', ieltsLoading:'جار البحث عن فيديوهات IELTS...', ieltsWatch:'شاهد على YouTube', ieltsDuration:'المدة', ieltsChannel:'القناة', ieltsNoVideos:'لم يتم العثور على فيديوهات IELTS لهذه الفئة.', ieltsError:'تعذر تحميل فيديوهات IELTS حاليا.', ieltsPublic:'فيديو عام', ieltsEnglish:'الإنجليزية', footerPlay:'وحدات التحضير', footerHome:'الرئيسية', footerRules:'قواعد اللعبة', footerCategories:'الفئات', footerAbout:'حول الموقع', footerAboutPage:'من نحن', footerContact:'اتصل بنا', footerLegal:'قانوني', footerPrivacy:'سياسة الخصوصية', footerTerms:'شروط الاستخدام', footerLegalNotice:'الإشعارات القانونية', footerCookies:'ملفات الارتباط', footerCopyright:'© 2026 حضّر لاختبار IELTS. جميع الحقوق محفوظة.',
-    }
+      "fr": {
+          "brandName": "Préparez votre IELTS",
+          "headerSubtitle": "Entraîne-toi à l’IELTS : Listening et Speaking",
+          "logout": "Deconnexion",
+          "login": "Connexion",
+          "loginDesc": "Connecte-toi pour utiliser IELTS Speaking.",
+          "register": "Creer un compte",
+          "registerDesc": "Cree un compte pour utiliser IELTS Speaking.",
+          "forgotPassword": "Mot de passe oublié ?",
+          "resetEmailRequired": "Saisis ton adresse email pour recevoir le lien de réinitialisation.",
+          "resetEmailSent": "Si un compte existe pour cette adresse, un lien de réinitialisation a été envoyé.",
+          "emailPlaceholder": "Adresse email",
+          "passwordPlaceholder": "Mot de passe",
+          "connect": "Se connecter",
+          "createAccount": "Creer mon compte",
+          "noAccount": "Pas encore de compte ?",
+          "alreadyAccount": "Deja un compte ?",
+          "backHome": "← Accueil",
+          "footerListening": "IELTS Listening",
+          "ieltsSpeakingLink": "Speaking IA (connexion requise)",
+          "guestHint": "Listening en acces libre. Connecte-toi pour utiliser IELTS Speaking (sessions limitees par jour).",
+          "ieltsKicker": "PREPARATION IELTS",
+          "ieltsTitle": "Prepare ton examen IELTS avec des videos",
+          "ieltsLead": "Choisis un module pour preparer ton examen IELTS : Listening ou Speaking.",
+          "ieltsListening": "Listening",
+          "footerPlay": "Modules de préparation",
+          "footerAbout": "A propos",
+          "footerAboutPage": "A propos de nous",
+          "footerContact": "Contact",
+          "footerLegal": "Legal",
+          "footerPrivacy": "Politique de confidentialite",
+          "footerTerms": "Conditions d'utilisation",
+          "footerLegalNotice": "Mentions legales",
+          "footerCookies": "Cookies",
+          "footerCopyright": "© 2026 Préparez votre IELTS. Tous droits reserves.",
+          "loginRequired": "Connecte-toi (e-mail vérifié) pour accéder à ta préparation IELTS."
+      },
+      "en": {
+          "brandName": "Prepare Your IELTS",
+          "headerSubtitle": "Practise for the IELTS: Listening and Speaking",
+          "logout": "Log out",
+          "login": "Sign in",
+          "loginDesc": "Sign in to use IELTS Speaking.",
+          "register": "Create an account",
+          "registerDesc": "Create an account to use IELTS Speaking.",
+          "forgotPassword": "Forgot password?",
+          "resetEmailRequired": "Enter your email address to receive a password reset link.",
+          "resetEmailSent": "If an account exists for this address, a password reset link has been sent.",
+          "emailPlaceholder": "Email address",
+          "passwordPlaceholder": "Password",
+          "connect": "Sign in",
+          "createAccount": "Create my account",
+          "noAccount": "Don't have an account yet?",
+          "alreadyAccount": "Already have an account?",
+          "backHome": "← Home",
+          "footerListening": "IELTS Listening",
+          "ieltsSpeakingLink": "AI Speaking (login required)",
+          "guestHint": "Listening is free to use. Sign in to use IELTS Speaking (limited sessions per day).",
+          "ieltsKicker": "IELTS PREPARATION",
+          "ieltsTitle": "Prepare for your IELTS exam with videos",
+          "ieltsLead": "Choose a module to prepare for your IELTS exam: Listening or Speaking.",
+          "ieltsListening": "Listening",
+          "footerPlay": "Preparation modules",
+          "footerAbout": "About",
+          "footerAboutPage": "About us",
+          "footerContact": "Contact",
+          "footerLegal": "Legal",
+          "footerPrivacy": "Privacy Policy",
+          "footerTerms": "Terms of Use",
+          "footerLegalNotice": "Legal Notice",
+          "footerCookies": "Cookies",
+          "footerCopyright": "© 2026 Prepare Your IELTS. All rights reserved.",
+          "loginRequired": "Sign in (verified email) to access your IELTS preparation."
+      },
+      "ar": {
+          "brandName": "حضّر لاختبار IELTS",
+          "headerSubtitle": "تدرب على IELTS: الاستماع والتحدث",
+          "logout": "تسجيل الخروج",
+          "login": "تسجيل الدخول",
+          "loginDesc": "سجل الدخول لاستخدام IELTS Speaking.",
+          "register": "إنشاء حساب",
+          "registerDesc": "أنشئ حسابا لاستخدام IELTS Speaking.",
+          "forgotPassword": "هل نسيت كلمة المرور؟",
+          "resetEmailRequired": "أدخل بريدك الإلكتروني لإرسال رابط إعادة تعيين كلمة المرور.",
+          "resetEmailSent": "إذا كان هناك حساب بهذا البريد، فسيتم إرسال رابط إعادة تعيين كلمة المرور.",
+          "emailPlaceholder": "البريد الإلكتروني",
+          "passwordPlaceholder": "كلمة المرور",
+          "connect": "تسجيل الدخول",
+          "createAccount": "إنشاء حسابي",
+          "noAccount": "ليس لديك حساب بعد؟",
+          "alreadyAccount": "لديك حساب بالفعل؟",
+          "backHome": "← الرئيسية",
+          "footerListening": "IELTS Listening",
+          "ieltsSpeakingLink": "التحدث بالذكاء الاصطناعي (يتطلب تسجيل الدخول)",
+          "guestHint": "الاستماع متاح مجانا. سجل الدخول لاستخدام IELTS Speaking (عدد الجلسات اليومية محدود).",
+          "ieltsKicker": "التحضير لامتحان IELTS",
+          "ieltsTitle": "استعد لامتحان IELTS من خلال الفيديوهات",
+          "ieltsLead": "اختر وحدة للتحضير لاختبار IELTS: Listening أو Speaking.",
+          "ieltsListening": "الاستماع",
+          "footerPlay": "وحدات التحضير",
+          "footerAbout": "حول الموقع",
+          "footerAboutPage": "من نحن",
+          "footerContact": "اتصل بنا",
+          "footerLegal": "قانوني",
+          "footerPrivacy": "سياسة الخصوصية",
+          "footerTerms": "شروط الاستخدام",
+          "footerLegalNotice": "الإشعارات القانونية",
+          "footerCookies": "ملفات الارتباط",
+          "footerCopyright": "© 2026 حضّر لاختبار IELTS. جميع الحقوق محفوظة.",
+          "loginRequired": "سجل الدخول (بريد إلكتروني مؤكد) للوصول إلى تحضيرك لاختبار IELTS."
+      }
   };
-
 
   const INFO_PAGES = {
     "fr": {
@@ -460,9 +434,7 @@
     interfaceLanguage = language;
     localStorage.setItem('aivq_interface_language', language);
     applyTranslations();
-    renderRewardsUi();
   }
-
 
   function showHome() {
     afterLogin = null;
@@ -477,7 +449,7 @@
   function openListening() {
     showScreen('ielts');
     const frame = document.getElementById('listeningFrame');
-    if (!frame.getAttribute('src')) frame.setAttribute('src', API_BASE + '/ielts-app');
+    if (!frame.getAttribute('src')) frame.setAttribute('src', API_BASE + '/ielts-app?parent=' + encodeURIComponent(window.location.origin));
     document.getElementById('homeMenu').classList.add('hidden');
     document.getElementById('listeningBox').classList.remove('hidden');
     window.scrollTo({top: 0, behavior: 'smooth'});
@@ -500,15 +472,7 @@
     }
   });
 
-
   let currentInfoPage = 'about';
-
-  function escapeInfoText(value) {
-    return String(value)
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;');
-  }
 
   function openInfoPage(pageKey) {
     if (!INFO_PAGES[interfaceLanguage] || !INFO_PAGES[interfaceLanguage][pageKey]) {
@@ -531,108 +495,43 @@
     window.scrollTo({top: 0, behavior: 'smooth'});
   }
 
-
   let afterLogin = null;
-
-
-  function refreshScoreDisplay() {
-    const value = state.mode === 'ielts' ? state.ieltsScore : state.totalScore;
-    scoreDisplay.textContent = String(value);
-    finalTotalScore.textContent = String(value);
-  }
-
-
-
-
-  function escapeHtml(value){return String(value||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\"/g,'&quot;').replace(/'/g,'&#039;');}
-
-
-
-  function watchIeltsVideo(videoId){window.open('https://www.youtube.com/watch?v='+encodeURIComponent(videoId),'_blank','noopener,noreferrer');}
 
   function isLoggedIn() {
     return Boolean(auth.currentUser && auth.currentUser.emailVerified && state.user);
   }
 
+  function openLogin() {
+    afterLogin = null;
+    setAuthError('');
+    showScreen('auth');
+  }
+
   function requireLogin(afterFn) {
     if (isLoggedIn()) return true;
     afterLogin = typeof afterFn === 'function' ? afterFn : null;
-    setAuthError(t('loginRequired') !== 'loginRequired' ? t('loginRequired') : 'Connecte-toi (email verifie) pour jouer ou acceder a la preparation IELTS.');
+    setAuthError(t('loginRequired'));
     showScreen('auth');
     return false;
   }
-
 
   // =====================================================
   // STATE
   // =====================================================
 
   const state = {
-
-    screen:
-      'auth',
-
-    user:
-      null,
-
-    language:
-      null,
-
-    category:
-      null,
-
-    videos:
-      [],
-
-    currentVideo:
-      null,
-
-    questions:
-      [],
-
-    answers:
-      [],
-
-    totalScore:
-      0,
-
-    mode:
-      'ielts',         // version allegee : IELTS Listening uniquement (score temporaire)
-
-    ieltsScore:
-      0,               // score IELTS de la session (jamais enregistre)
-
-    languageBeforeIelts:
-      null,
-
-    viewedVideos:
-      new Set(),
-
-    submitted:
-      false,
-
-    evaluation:
-      {
-        like:
-          null,
-
-        length:
-          null
-      }
-
+    screen: 'ielts',
+    user: null
   };
-
 
   // =====================================================
   // ELEMENTS
   // =====================================================
 
-
-
   const authScreen = document.getElementById('authScreen');
   const accountBar = document.getElementById('accountBar');
   const accountEmail = document.getElementById('accountEmail');
-  const accountScore = document.getElementById('accountScore');
+  
   const authTitle = document.getElementById('authTitle');
   const authDescription = document.getElementById('authDescription');
   const authForm = document.getElementById('authForm');
@@ -644,124 +543,11 @@
   const authSwitchText = document.getElementById('authSwitchText');
   const authSwitchButton = document.getElementById('authSwitchButton');
 
-
   const ieltsScreen = document.getElementById('ieltsScreen');
-
-
-  const gameScreen =
-    document.getElementById(
-      'gameScreen'
-    );
-
-
-  const resultScreen =
-    document.getElementById(
-      'resultScreen'
-    );
-
-
-  const quizArea =
-    document.getElementById(
-      'quizArea'
-    );
-
-
-  const videoLoading =
-    document.getElementById(
-      'videoLoading'
-    );
-
-
-  const videoError =
-    document.getElementById(
-      'videoError'
-    );
-
-
-  const videoTitle =
-    document.getElementById(
-      'videoTitle'
-    );
-
-
-  const videoChannel =
-    document.getElementById(
-      'videoChannel'
-    );
-
-
-  const videoMeta =
-    document.getElementById(
-      'videoMeta'
-    );
-
-
-  const youtubePlayer =
-    document.getElementById(
-      'youtubePlayer'
-    );
-
-
-  const questionsContainer =
-    document.getElementById(
-      'questionsContainer'
-    );
-
-
-  const progressBar =
-    document.getElementById(
-      'progressBar'
-    );
-
-
-  const scoreDisplay =
-    document.getElementById(
-      'scoreDisplay'
-    );
-
-
-  const roundScore =
-    document.getElementById(
-      'roundScore'
-    );
-
-
-  const finalTotalScore =
-    document.getElementById(
-      'finalTotalScore'
-    );
-
-
-  const resultMessage =
-    document.getElementById(
-      'resultMessage'
-    );
-
-
-  const languageBadge =
-    document.getElementById(
-      'languageBadge'
-    );
-
-
-  const categoryBadge =
-    document.getElementById(
-      'categoryBadge'
-    );
-
-
-  const globalError =
-    document.getElementById(
-      'globalError'
-    );
-
 
   // =====================================================
   // LANGUAGE LABEL
   // =====================================================
-
-
-
 
   function setAuthError(message, isSuccess) {
     authError.textContent = message || '';
@@ -822,165 +608,15 @@
   // =====================================================
 
   const REWARD_TEXT = {
-    fr: {
-      withdraw:'Retirer', withdrawalsOff:'Les retraits sont temporairement désactivés.',
-      minNeeded:'Retrait possible à partir de {min} (il te manque {missing}).', pendingRequest:'Demande de retrait en cours de traitement.',
-      dailyCounter:'Vidéos jouées aujourd’hui : {used} / {limit}', dailyLimit:'Tu as atteint la limite de vidéos du jour. Reviens demain !',
-      alreadyPlayed:'Tu as déjà joué cette vidéo : pas de point cette fois.', passedNoPoint:'Bravo, mais cette vidéo a déjà été jouée : pas de point.',
-      withdrawTitle:'Retirer mes gains', withdrawBalance:'Solde disponible : {amount} ({points} points)',
-      withdrawInfo:'Choisis comment recevoir ton paiement et donne tes coordonnées. Ta demande sera vérifiée puis payée par l’administrateur.',
-      payMethod:'Moyen de paiement', methodPaypal:'PayPal', methodCard:'Carte / virement bancaire', methodCash:'Western Union / Wafacash (code envoyé par e-mail)',
-      fullName:'Nom et prénom complets', country:'Pays', paypalEmail:'E-mail de ton compte PayPal', contactEmail:'E-mail de contact',
-      bankAccount:'RIB (24 chiffres) ou IBAN', cardNote:'Ton RIB ou ton IBAN suffit pour recevoir un virement. Il sert uniquement à te verser ton paiement, il n’est visible que par l’administrateur et il est effacé une fois ta demande traitée. Si tu es mineur, demande l’accord d’un parent. Ne saisis jamais ton numéro de carte, sa date d’expiration ni le code au dos.',
-      networkWU:'Western Union', networkWafa:'Wafacash', phone:'Téléphone (avec indicatif, ex. +212…)', city:'Ville',
-      cashNote:'Le code de retrait sera envoyé par e-mail à : {email}.',
-      fieldsRequired:'Complète tous les champs.', invalidEmail:'Adresse e-mail invalide.', codeSent:'code envoyé par e-mail',
-      modeButton:'Mode de jeu', modeChoose:'Choisis ton mode de jeu : libre ou récompense.', modeFreeOn:'Mode jeu libre : pas de points ni de cumul.',
-      modeRewardOn:'Mode récompense actif.', modeDepositPending:'Dépôt de garantie en cours de vérification.',
-      modeRefundPending:'Remboursement du dépôt demandé : au plus tard le {date}.',
-      pointsFrozen:'Tes points sont gelés : active le mode récompense pour pouvoir les retirer.',
-      modeTitle:'Mode de jeu',
-      chooseText:'Jeu libre : tu joues sans récompense, sans points ni cumul. Mode récompense : tes points s’accumulent et tu peux les retirer dès que tu atteins le minimum. Pour montrer que tu es sérieux, tu verses un dépôt de garantie de {amount}, une seule fois. Il t’est rendu avec ton premier retrait, ou dans les {days} jours si tu quittes le mode récompense.',
-      playFree:'Jouer sans récompense', activateReward:'Activer le mode récompense ({amount})', depositPaid:'J’ai payé le dépôt', back:'Retour', close:'Fermer',
-      depPayMethod:'Comment as-tu payé ? (PayPal, Wafacash, virement…)', depPayerName:'Nom de la personne qui a payé', depReference:'Référence du paiement (n° de transaction, code…)',
-      noInstructions:'Demande à l’administrateur comment payer le dépôt, puis remplis les champs ci-dessous.',
-      depositPendingText:'Ton paiement est en cours de vérification par l’administrateur. Dès qu’il est confirmé, le mode récompense s’active.',
-      refundPendingText:'Ton dépôt de {amount} sera remboursé au plus tard le {date}. Tu es revenu en jeu libre ; tes points restent gelés.',
-      rewardOnHeld:'Mode récompense actif. Ton dépôt de {amount} te sera rendu avec ton premier retrait.', rewardOnRefunded:'Mode récompense actif. Ton dépôt t’a déjà été rendu avec ton premier retrait : si tu quittes ce mode, il n’y aura aucun remboursement et tes points seront gelés. Pour y revenir, il faudra un nouveau dépôt.',
-      leaveReward:'Quitter le mode récompense', leaveConfirm:'Quitter le mode récompense ? Tes points restent sur ton compte mais sont gelés tant que tu ne reprends pas le mode récompense.',
-      leaveTitle:'Quitter le mode récompense', leaveRefund:'Dépôt à rembourser : {amount}',
-      leaveInfo:'Choisis comment recevoir ton dépôt et donne tes coordonnées. Il te sera remboursé dans les {days} jours. Tes points restent sur ton compte mais sont gelés.',
-      confirmLeave:'Quitter et demander le remboursement', leaveSent:'Demande envoyée : ton dépôt sera remboursé dans le délai annoncé.',
-      depositBack:'+ dépôt remboursé : {amount}', depositRefundLabel:'Remboursement du dépôt', depositSent:'Merci ! Ton paiement va être vérifié.',
-      freePlayResult:'Bravo ! En jeu libre, on ne gagne pas de points.',
-      payChoose:'Choisis comment payer le dépôt :', payStripe:'Payer par carte bancaire (Stripe)', payStripeTest:'Payer par carte (Stripe, mode test)', payPaypal:'Payer avec PayPal',
-      payManual:'RIB, Western Union ou Wafacash', depMethodRib:'Virement / RIB', depMethodWU:'Western Union', depMethodWafa:'Wafacash',
-      payRedirect:'Redirection vers le paiement sécurisé…', depositChecking:'Vérification de ton paiement…',
-      depositActivated:'Paiement confirmé ! Le mode récompense est actif.', depositCancelled:'Paiement annulé : rien n’a été débité.',
-      refundDone:'Ton dépôt a été remboursé sur ton moyen de paiement.',
-      blockedMsg:'Ton compte est bloqué. Contacte l’administrateur.',
-      libraryEmpty:'Tu as déjà vu toutes les vidéos disponibles pour ce thème. Reviens bientôt : de nouvelles vidéos sont ajoutées régulièrement.',
-      libraryNone:'Aucune vidéo n’est encore disponible pour ce thème. Reviens bientôt !',
-      libraryError:'Impossible de charger les vidéos pour le moment. Réessaie dans un instant.',
-      methodOn:'Activé', methodOff:'Désactivé', noMethods:'Aucun moyen de paiement n’est disponible pour le moment. Réessaie plus tard.',
-      rewardSoon:'Le mode récompense arrive bientôt : pour l’instant, tout le monde joue en jeu libre.',
-      rewardSoonText:'Le mode récompense n’est pas encore ouvert. Pour l’instant, tout le monde joue en jeu libre, sans points ni cumul. Reviens bientôt !',
-      pointsFrozenSoon:'Tes points sont gelés jusqu’à l’ouverture du mode récompense.',
-      leaveConfirmNoRefund:'Ton dépôt t’a déjà été remboursé avec ton premier retrait. Si tu quittes le mode récompense, il n’y aura aucun nouveau remboursement et tes points seront gelés. Pour reprendre le mode récompense, il faudra verser un nouveau dépôt. Quitter quand même ?',
-      leaveConfirmRefund:'Quitter le mode récompense ? Ton dépôt de {amount} sera remboursé sur ton moyen de paiement. Tes points restent sur ton compte, gelés.',
-      payoutPlaceholder:'E-mail PayPal ou autre moyen de paiement', confirmRequest:'Envoyer la demande', cancel:'Fermer',
-      requestSent:'Demande envoyée ! Elle sera traitée prochainement.', payoutRequired:'Indique où recevoir ton paiement.',
-      withdrawFailed:'La demande a échoué. Réessaie plus tard.', historyTitle:'Mes demandes',
-      statusPending:'En attente', statusPaid:'Payée', statusRejected:'Refusée',
-      loadError:'Impossible de charger ton compte. Réessaie dans un instant.', submitError:'Impossible de valider le quiz.',
-      quizExpired:'Ce quiz a expiré : relance-le.'
-    },
-    en: {
-      withdraw:'Withdraw', withdrawalsOff:'Withdrawals are temporarily disabled.',
-      minNeeded:'Withdrawal available from {min} ({missing} to go).', pendingRequest:'Withdrawal request being processed.',
-      dailyCounter:'Videos played today: {used} / {limit}', dailyLimit:'You have reached today’s video limit. Come back tomorrow!',
-      alreadyPlayed:'You already played this video: no point this time.', passedNoPoint:'Well done, but this video was already played: no point.',
-      withdrawTitle:'Withdraw my earnings', withdrawBalance:'Available balance: {amount} ({points} points)',
-      withdrawInfo:'Choose how to receive your payment and give your details. Your request will be checked and paid by the administrator.',
-      payMethod:'Payment method', methodPaypal:'PayPal', methodCard:'Bank card / bank transfer', methodCash:'Western Union / Wafacash (code sent by email)',
-      fullName:'Full name', country:'Country', paypalEmail:'Your PayPal account email', contactEmail:'Contact email',
-      bankAccount:'RIB (24 digits) or IBAN', cardNote:'Your RIB or IBAN is enough to receive a transfer. It is used only to send you your payment, only the administrator can see it, and it is erased once your request is processed. If you are a minor, ask a parent for permission. Never enter your card number, expiry date or the code on the back.',
-      networkWU:'Western Union', networkWafa:'Wafacash', phone:'Phone (with country code, e.g. +212…)', city:'City',
-      cashNote:'The withdrawal code will be emailed to: {email}.',
-      fieldsRequired:'Please fill in all fields.', invalidEmail:'Invalid email address.', codeSent:'code sent by email',
-      modeButton:'Play mode', modeChoose:'Choose your play mode: free or reward.', modeFreeOn:'Free play: no points and no balance.',
-      modeRewardOn:'Reward mode on.', modeDepositPending:'Security deposit being checked.',
-      modeRefundPending:'Deposit refund requested: by {date} at the latest.',
-      pointsFrozen:'Your points are frozen: turn on reward mode to withdraw them.',
-      modeTitle:'Play mode',
-      chooseText:'Free play: you play with no reward, no points and no balance. Reward mode: your points add up and you can withdraw them once you reach the minimum. To show you are serious, you pay a one-time security deposit of {amount}. It is returned with your first withdrawal, or within {days} days if you leave reward mode.',
-      playFree:'Play without reward', activateReward:'Turn on reward mode ({amount})', depositPaid:'I paid the deposit', back:'Back', close:'Close',
-      depPayMethod:'How did you pay? (PayPal, Wafacash, bank transfer…)', depPayerName:'Name of the person who paid', depReference:'Payment reference (transaction no., code…)',
-      noInstructions:'Ask the administrator how to pay the deposit, then fill in the fields below.',
-      depositPendingText:'Your payment is being checked by the administrator. Reward mode turns on as soon as it is confirmed.',
-      refundPendingText:'Your {amount} deposit will be refunded by {date} at the latest. You are back in free play; your points stay frozen.',
-      rewardOnHeld:'Reward mode on. Your {amount} deposit will be returned with your first withdrawal.', rewardOnRefunded:'Reward mode on. Your deposit was already returned with your first withdrawal: if you leave this mode, there will be no refund and your points will be frozen. To come back, you will need a new deposit.',
-      leaveReward:'Leave reward mode', leaveConfirm:'Leave reward mode? Your points stay on your account but are frozen until you turn reward mode back on.',
-      leaveTitle:'Leave reward mode', leaveRefund:'Deposit to refund: {amount}',
-      leaveInfo:'Choose how to receive your deposit and give your details. It will be refunded within {days} days. Your points stay on your account but are frozen.',
-      confirmLeave:'Leave and request refund', leaveSent:'Request sent: your deposit will be refunded within the stated time.',
-      depositBack:'+ deposit refunded: {amount}', depositRefundLabel:'Deposit refund', depositSent:'Thank you! Your payment will be checked.',
-      freePlayResult:'Well done! In free play, you do not earn points.',
-      payChoose:'Choose how to pay the deposit:', payStripe:'Pay by bank card (Stripe)', payStripeTest:'Pay by card (Stripe, test mode)', payPaypal:'Pay with PayPal',
-      payManual:'RIB, Western Union or Wafacash', depMethodRib:'Bank transfer / RIB', depMethodWU:'Western Union', depMethodWafa:'Wafacash',
-      payRedirect:'Redirecting to secure payment…', depositChecking:'Checking your payment…',
-      depositActivated:'Payment confirmed! Reward mode is on.', depositCancelled:'Payment cancelled: nothing was charged.',
-      refundDone:'Your deposit has been refunded to your payment method.',
-      blockedMsg:'Your account is blocked. Please contact the administrator.',
-      libraryEmpty:'You have already seen all the videos available for this topic. Come back soon: new videos are added regularly.',
-      libraryNone:'No video is available for this topic yet. Come back soon!',
-      libraryError:'Unable to load the videos right now. Please try again in a moment.',
-      methodOn:'Enabled', methodOff:'Disabled', noMethods:'No payment method is available right now. Please try again later.',
-      rewardSoon:'Reward mode is coming soon: for now everyone plays in free play.',
-      rewardSoonText:'Reward mode is not open yet. For now everyone plays in free play, with no points or balance. Come back soon!',
-      pointsFrozenSoon:'Your points are frozen until reward mode opens.',
-      leaveConfirmNoRefund:'Your deposit was already refunded with your first withdrawal. If you leave reward mode, there will be no new refund and your points will be frozen. To return to reward mode, you will need to pay a new deposit. Leave anyway?',
-      leaveConfirmRefund:'Leave reward mode? Your {amount} deposit will be refunded to your payment method. Your points stay on your account, frozen.',
-      payoutPlaceholder:'PayPal email or other payment method', confirmRequest:'Send request', cancel:'Close',
-      requestSent:'Request sent! It will be processed soon.', payoutRequired:'Tell us where to send your payment.',
-      withdrawFailed:'The request failed. Please try again later.', historyTitle:'My requests',
-      statusPending:'Pending', statusPaid:'Paid', statusRejected:'Rejected',
-      loadError:'Unable to load your account. Please try again in a moment.', submitError:'Unable to validate the quiz.',
-      quizExpired:'This quiz has expired: start it again.'
-    },
-    ar: {
-      withdraw:'سحب', withdrawalsOff:'السحب معطل مؤقتا.',
-      minNeeded:'السحب متاح ابتداء من {min} (ينقصك {missing}).', pendingRequest:'طلب السحب قيد المعالجة.',
-      dailyCounter:'الفيديوهات التي لعبتها اليوم: {used} / {limit}', dailyLimit:'وصلت إلى حد الفيديوهات اليومي. عد غدا!',
-      alreadyPlayed:'لقد لعبت هذا الفيديو من قبل: لا نقطة هذه المرة.', passedNoPoint:'أحسنت، لكن هذا الفيديو لعب من قبل: لا نقطة.',
-      withdrawTitle:'سحب أرباحي', withdrawBalance:'الرصيد المتاح: {amount} ({points} نقطة)',
-      withdrawInfo:'اختر طريقة استلام دفعتك وأدخل بياناتك. سيتم التحقق من طلبك ثم دفعه من طرف المشرف.',
-      payMethod:'طريقة الدفع', methodPaypal:'PayPal', methodCard:'بطاقة / تحويل بنكي', methodCash:'Western Union / Wafacash (يُرسل الرمز بالبريد الإلكتروني)',
-      fullName:'الاسم الكامل', country:'البلد', paypalEmail:'بريد حساب PayPal', contactEmail:'بريد التواصل',
-      bankAccount:'رقم الحساب البنكي RIB (24 رقما) أو IBAN', cardNote:'يكفي رقم RIB أو IBAN لاستلام التحويل. يُستعمل فقط لإرسال دفعتك، ولا يراه إلا المشرف، ويُمحى بعد معالجة طلبك. إذا كنت قاصرا فاطلب موافقة أحد والديك. لا تدخل أبدا رقم بطاقتك أو تاريخ انتهائها أو الرمز الموجود خلفها.',
-      networkWU:'Western Union', networkWafa:'Wafacash', phone:'الهاتف (مع رمز البلد، مثال +212…)', city:'المدينة',
-      cashNote:'سيتم إرسال رمز السحب بالبريد الإلكتروني إلى: {email}.',
-      fieldsRequired:'املأ جميع الحقول.', invalidEmail:'بريد إلكتروني غير صالح.', codeSent:'تم إرسال الرمز بالبريد',
-      modeButton:'نمط اللعب', modeChoose:'اختر نمط اللعب: حر أو مكافآت.', modeFreeOn:'اللعب الحر: بدون نقاط ولا رصيد.',
-      modeRewardOn:'نمط المكافآت مفعّل.', modeDepositPending:'ضمان الدفع قيد التحقق.',
-      modeRefundPending:'تم طلب استرجاع الضمان: في أجل أقصاه {date}.',
-      pointsFrozen:'نقاطك مجمّدة: فعّل نمط المكافآت لتتمكن من سحبها.',
-      modeTitle:'نمط اللعب',
-      chooseText:'اللعب الحر: تلعب بدون مكافأة وبدون نقاط ولا رصيد. نمط المكافآت: تتراكم نقاطك ويمكنك سحبها عند بلوغ الحد الأدنى. لإثبات جديتك تدفع ضمانا قدره {amount} مرة واحدة فقط. يُرد إليك مع أول سحب، أو خلال {days} أيام إذا غادرت نمط المكافآت.',
-      playFree:'العب بدون مكافأة', activateReward:'فعّل نمط المكافآت ({amount})', depositPaid:'لقد دفعت الضمان', back:'رجوع', close:'إغلاق',
-      depPayMethod:'كيف دفعت؟ (PayPal، Wafacash، تحويل…)', depPayerName:'اسم الشخص الذي دفع', depReference:'مرجع الدفع (رقم العملية، الرمز…)',
-      noInstructions:'اسأل المشرف عن طريقة دفع الضمان ثم املأ الحقول أدناه.',
-      depositPendingText:'المشرف يتحقق من دفعتك. بمجرد التأكيد يتفعل نمط المكافآت.',
-      refundPendingText:'سيُسترجع ضمانك البالغ {amount} في أجل أقصاه {date}. عدت إلى اللعب الحر؛ تبقى نقاطك مجمّدة.',
-      rewardOnHeld:'نمط المكافآت مفعّل. سيُرد إليك ضمانك البالغ {amount} مع أول سحب.', rewardOnRefunded:'نمط المكافآت مفعّل. سبق أن رُدّ إليك ضمانك مع أول سحب: إذا غادرت هذا النمط فلن يكون هناك أي استرجاع وستُجمَّد نقاطك. وللعودة ستحتاج إلى ضمان جديد.',
-      leaveReward:'مغادرة نمط المكافآت', leaveConfirm:'مغادرة نمط المكافآت؟ تبقى نقاطك في حسابك لكنها مجمّدة حتى تعود إلى نمط المكافآت.',
-      leaveTitle:'مغادرة نمط المكافآت', leaveRefund:'الضمان المسترجع: {amount}',
-      leaveInfo:'اختر كيف تريد استلام ضمانك وأدخل بياناتك. سيُرد إليك خلال {days} أيام. تبقى نقاطك في حسابك لكنها مجمّدة.',
-      confirmLeave:'مغادرة وطلب الاسترجاع', leaveSent:'تم إرسال الطلب: سيُرد إليك ضمانك خلال المدة المعلنة.',
-      depositBack:'+ استرجاع الضمان: {amount}', depositRefundLabel:'استرجاع الضمان', depositSent:'شكرا! سيتم التحقق من دفعتك.',
-      freePlayResult:'أحسنت! في اللعب الحر لا تُكسب نقاط.',
-      payChoose:'اختر طريقة دفع الضمان:', payStripe:'الدفع بالبطاقة البنكية (Stripe)', payStripeTest:'الدفع بالبطاقة (Stripe، وضع تجريبي)', payPaypal:'الدفع عبر PayPal',
-      payManual:'RIB أو Western Union أو Wafacash', depMethodRib:'تحويل بنكي / RIB', depMethodWU:'Western Union', depMethodWafa:'Wafacash',
-      payRedirect:'جار التحويل إلى صفحة الدفع الآمن…', depositChecking:'جار التحقق من دفعتك…',
-      depositActivated:'تم تأكيد الدفع! نمط المكافآت مفعّل.', depositCancelled:'تم إلغاء الدفع: لم يُخصم أي مبلغ.',
-      refundDone:'تم رد ضمانك إلى وسيلة الدفع الخاصة بك.',
-      blockedMsg:'تم حظر حسابك. تواصل مع المشرف.',
-      libraryEmpty:'لقد شاهدت كل الفيديوهات المتاحة لهذا الموضوع. عد قريبا: تتم إضافة فيديوهات جديدة بانتظام.',
-      libraryNone:'لا توجد فيديوهات متاحة لهذا الموضوع بعد. عد قريبا!',
-      libraryError:'تعذر تحميل الفيديوهات حاليا. حاول مرة أخرى بعد قليل.',
-      methodOn:'مفعّل', methodOff:'معطّل', noMethods:'لا توجد وسيلة دفع متاحة حاليا. حاول مرة أخرى لاحقا.',
-      rewardSoon:'نمط المكافآت قادم قريبا: في الوقت الحالي يلعب الجميع في اللعب الحر.',
-      rewardSoonText:'نمط المكافآت غير متاح بعد. في الوقت الحالي يلعب الجميع في اللعب الحر، بدون نقاط ولا رصيد. عد قريبا!',
-      pointsFrozenSoon:'نقاطك مجمّدة إلى أن يفتح نمط المكافآت.',
-      leaveConfirmNoRefund:'سبق أن رُدّ إليك ضمانك مع أول سحب. إذا غادرت نمط المكافآت فلن يكون هناك أي استرجاع جديد وستُجمَّد نقاطك. وللعودة إلى نمط المكافآت ستحتاج إلى دفع ضمان جديد. هل تريد المغادرة رغم ذلك؟',
-      leaveConfirmRefund:'مغادرة نمط المكافآت؟ سيُرد ضمانك البالغ {amount} إلى وسيلة الدفع الخاصة بك. تبقى نقاطك في حسابك لكنها مجمّدة.',
-      payoutPlaceholder:'بريد PayPal أو وسيلة دفع أخرى', confirmRequest:'إرسال الطلب', cancel:'إغلاق',
-      requestSent:'تم إرسال الطلب! ستتم معالجته قريبا.', payoutRequired:'أخبرنا أين تريد استلام دفعتك.',
-      withdrawFailed:'فشل الطلب. حاول لاحقا.', historyTitle:'طلباتي',
-      statusPending:'قيد الانتظار', statusPaid:'تم الدفع', statusRejected:'مرفوض',
-      loadError:'تعذر تحميل حسابك. حاول بعد قليل.', submitError:'تعذر تأكيد الاختبار.',
-      quizExpired:'انتهت صلاحية هذا الاختبار: ابدأه من جديد.'
-    }
+      "fr": {
+          "blockedMsg": "Ton compte est bloqué. Contacte l’administrateur."
+      },
+      "en": {
+          "blockedMsg": "Your account is blocked. Please contact the administrator."
+      },
+      "ar": {
+          "blockedMsg": "تم حظر حسابك. تواصل مع المشرف."
+      }
   };
 
   function rt(key) {
@@ -988,13 +624,9 @@
     return pack[key] !== undefined ? pack[key] : REWARD_TEXT.fr[key];
   }
 
-  const rewardsState = { me: null };
-  let withdrawIntent = 'withdraw'; // 'withdraw' (retrait) ou 'leave' (sortie du mode récompense)
-  let showDepositForm = false;
-  let manualMethod = null; // rib, western_union ou wafacash : moyen payé à la main choisi par l'élève
-  const MANUAL_LABEL_KEYS = { rib: 'depMethodRib', western_union: 'depMethodWU', wafacash: 'depMethodWafa' };
-  let modePromptShown = false;
-  let depositReturnHandled = false;
+   // 'withdraw' (retrait) ou 'leave' (sortie du mode récompense)
+  
+   // rib, western_union ou wafacash : moyen payé à la main choisi par l'élève
 
   // Requete avec le jeton Firebase de l'eleve (le serveur verifie qui il est)
   async function authedFetch(url, options) {
@@ -1014,524 +646,19 @@
     }
   }
 
-  async function rewardsApi(path, options) {
-    const response = await authedFetch(API_BASE + '/api/rewards' + path, options);
-    const data = await response.json().catch(function() { return {}; });
-    return { status: response.status, ok: response.ok && data.ok !== false, data: data };
-  }
-
-  async function loadRewards() {
-    const result = await rewardsApi('/me');
-    if (!result.ok) throw new Error(result.data.error || rt('loadError'));
-    rewardsState.me = result.data;
-    state.totalScore = result.data.user.points;
-    return result.data;
-  }
-
-  function formatMoney(cents) {
-    try {
-      return new Intl.NumberFormat(interfaceLanguage, { style: 'currency', currency: 'USD' }).format(cents / 100);
-    } catch (e) {
-      return '$' + (cents / 100).toFixed(2);
-    }
-  }
-
-  function setWithdrawMessage(text, isSuccess) {
-    const box = document.getElementById('withdrawMessage');
-    box.textContent = text || '';
-    box.classList.toggle('hidden', !text);
-    box.classList.toggle('auth-success', Boolean(text && isSuccess));
-  }
-
-  function methodName(item) {
-    if (item.method === 'paypal') return rt('methodPaypal');
-    if (item.method === 'card') return rt('methodCard');
-    if (item.method === 'cash') return item.network === 'wafacash' ? rt('networkWafa') : rt('networkWU');
-    return '';
-  }
-
-  function wdValue(id) {
-    return document.getElementById(id).value.trim();
-  }
-
-  function renderWithdrawFields() {
-    const method = document.getElementById('wdMethod').value;
-    document.getElementById('wdFieldsPaypal').classList.toggle('hidden', method !== 'paypal');
-    document.getElementById('wdFieldsCard').classList.toggle('hidden', method !== 'card');
-    document.getElementById('wdFieldsCash').classList.toggle('hidden', method !== 'cash');
-  }
-
   // Textes du formulaire (langue de l'interface)
-  function applyWithdrawTexts() {
-    const methodSelect = document.getElementById('wdMethod');
-    methodSelect.options[0].textContent = rt('methodPaypal');
-    methodSelect.options[1].textContent = rt('methodCard');
-    methodSelect.options[2].textContent = rt('methodCash');
-    document.getElementById('wdMethodLabel').textContent = rt('payMethod');
-    document.getElementById('wdFullName').placeholder = rt('fullName');
-    document.getElementById('wdCountry').placeholder = rt('country');
-    document.getElementById('wdPaypalEmail').placeholder = rt('paypalEmail');
-    document.getElementById('wdContactEmail').placeholder = rt('contactEmail');
-    document.getElementById('wdBankAccount').placeholder = rt('bankAccount');
-    document.getElementById('wdCardNote').textContent = rt('cardNote');
-    const networkSelect = document.getElementById('wdNetwork');
-    networkSelect.options[0].textContent = rt('networkWU');
-    networkSelect.options[1].textContent = rt('networkWafa');
-    document.getElementById('wdPhone').placeholder = rt('phone');
-    document.getElementById('wdCity').placeholder = rt('city');
-    const email = rewardsState.me && rewardsState.me.user ? rewardsState.me.user.email : '';
-    document.getElementById('wdCashNote').textContent = rt('cashNote').replace('{email}', email);
-    renderWithdrawFields();
-  }
-
-  function resetWithdrawForm() {
-    ['wdFullName', 'wdCountry', 'wdPaypalEmail', 'wdContactEmail', 'wdBankAccount', 'wdPhone', 'wdCity'].forEach(function(id) {
-      document.getElementById(id).value = '';
-    });
-    document.getElementById('wdMethod').value = 'paypal';
-    document.getElementById('wdNetwork').value = 'western_union';
-    renderWithdrawFields();
-  }
 
   // Rassemble et verifie les coordonnees (le serveur reverifie tout)
-  function collectWithdrawPayload() {
-    const emailOk = function(value) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value); };
-    const method = wdValue('wdMethod');
-    const payload = { method: method, fullName: wdValue('wdFullName'), country: wdValue('wdCountry') };
-
-    if (payload.fullName.length < 2 || payload.country.length < 2) {
-      setWithdrawMessage(rt('fieldsRequired'));
-      return null;
-    }
-
-    if (method === 'paypal') {
-      payload.paypalEmail = wdValue('wdPaypalEmail');
-      if (!emailOk(payload.paypalEmail)) {
-        setWithdrawMessage(rt('invalidEmail'));
-        return null;
-      }
-    } else if (method === 'card') {
-      payload.contactEmail = wdValue('wdContactEmail') || (state.user && state.user.email) || '';
-      if (!emailOk(payload.contactEmail)) {
-        setWithdrawMessage(rt('invalidEmail'));
-        return null;
-      }
-      payload.bankAccount = wdValue('wdBankAccount');
-      if (payload.bankAccount.replace(/\s+/g, '').length < 10) {
-        setWithdrawMessage(rt('fieldsRequired'));
-        return null;
-      }
-    } else if (method === 'cash') {
-      payload.network = wdValue('wdNetwork');
-      payload.phone = wdValue('wdPhone');
-      payload.city = wdValue('wdCity');
-      if (payload.phone.length < 6 || payload.city.length < 2) {
-        setWithdrawMessage(rt('fieldsRequired'));
-        return null;
-      }
-    }
-
-    return payload;
-  }
-
-  function renderWithdrawHistory() {
-    const box = document.getElementById('withdrawHistory');
-    const me = rewardsState.me;
-    box.innerHTML = '';
-    if (!me || !me.user.withdrawals.length) return;
-
-    const title = document.createElement('h3');
-    title.textContent = rt('historyTitle');
-    box.appendChild(title);
-
-    me.user.withdrawals.forEach(function(item) {
-      const row = document.createElement('div');
-      row.className = 'withdraw-item';
-      const left = document.createElement('span');
-      left.textContent = formatMoney(item.amountCents) + ' · ' + (item.type === 'deposit_refund' ? rt('depositRefundLabel') + ' · ' : '') + (item.method ? methodName(item) + ' · ' : '') + new Date(item.createdAt).toLocaleDateString(interfaceLanguage);
-      const right = document.createElement('span');
-      right.className = 'withdraw-status-' + item.status;
-      right.textContent = rt(item.status === 'paid' ? 'statusPaid' : item.status === 'rejected' ? 'statusRejected' : 'statusPending') +
-        (item.status === 'paid' && item.codeSent ? ' · ' + rt('codeSent') : '');
-      row.appendChild(left);
-      row.appendChild(right);
-      box.appendChild(row);
-    });
-  }
 
   // Met a jour solde, compteur du jour, bouton "Retirer" (actif seulement si le serveur l'autorise)
-  function renderRewardsUi() {
-    const button = document.getElementById('withdrawButton');
-    if (!button) return;
-
-    const money = document.getElementById('accountMoney');
-    const daily = document.getElementById('accountDaily');
-    const hint = document.getElementById('accountHint');
-    const me = rewardsState.me;
-
-    button.textContent = rt('withdraw');
-    document.getElementById('modeButton').textContent = rt('modeButton');
-    document.getElementById('modeButton').disabled = Boolean(me && state.user && (me.user.blocked || rewardLocked(me)));
-    document.getElementById('accountMode').textContent = me && state.user ? modeLine(me) : '';
-
-    if (!me || !state.user) {
-      button.disabled = true;
-      money.textContent = '';
-      daily.textContent = '';
-      hint.textContent = '';
-      return;
-    }
-
-    const config = me.config;
-    const user = me.user;
-
-    money.textContent = '· ' + formatMoney(user.balanceCents);
-    daily.textContent = rt('dailyCounter').replace('{used}', me.today.used).replace('{limit}', me.today.limit);
-    button.disabled = !me.canWithdraw;
-
-    let message = '';
-    if (!user.rewardActive) {
-      message = user.points > 0 ? rt(rewardLocked(me) ? 'pointsFrozenSoon' : 'pointsFrozen') : '';
-    } else if (!config.withdrawalsEnabled) {
-      message = rt('withdrawalsOff');
-    } else if (user.withdrawals.some(function(item) { return item.status === 'pending'; })) {
-      message = rt('pendingRequest');
-    } else if (user.balanceCents < config.minWithdrawalCents) {
-      message = rt('minNeeded')
-        .replace('{min}', formatMoney(config.minWithdrawalCents))
-        .replace('{missing}', formatMoney(config.minWithdrawalCents - user.balanceCents));
-    }
-    if (me.legacy && me.legacy.status === 'error') {
-      message = (message ? message + ' ' : '') + 'Anciens points non repris : ' + me.legacy.message;
-    }
-    hint.textContent = message;
-
-    // Panneau de retrait (s'il est ouvert)
-    const leaving = withdrawIntent === 'leave';
-    document.getElementById('withdrawTitle').textContent = rt(leaving ? 'leaveTitle' : 'withdrawTitle');
-    document.getElementById('withdrawBalance').textContent = leaving
-      ? rt('leaveRefund').replace('{amount}', formatMoney(user.deposit.heldCents))
-      : rt('withdrawBalance').replace('{amount}', formatMoney(user.balanceCents)).replace('{points}', user.points) +
-        (user.deposit.status === 'held' ? ' ' + rt('depositBack').replace('{amount}', formatMoney(user.deposit.heldCents)) : '');
-    document.getElementById('withdrawInfo').textContent = leaving
-      ? rt('leaveInfo').replace('{days}', config.depositRefundDays)
-      : rt('withdrawInfo');
-    applyWithdrawTexts();
-    document.getElementById('withdrawConfirm').textContent = rt(leaving ? 'confirmLeave' : 'confirmRequest');
-    document.getElementById('withdrawConfirm').disabled = leaving ? user.mode !== 'reward' : !me.canWithdraw;
-    document.getElementById('withdrawCancel').textContent = rt('cancel');
-    renderWithdrawHistory();
-  }
 
   // ----- Mode de jeu : jeu libre ou mode récompense (dépôt de garantie) -----
 
   // Mode récompense fermé (interrupteur de l'administrateur) pour les élèves qui n'y sont pas déjà
-  function rewardLocked(me) {
-    const user = me.user;
-    const inFlow = user.rewardActive || ['pending', 'leaving'].includes(user.deposit.status);
-    return !me.config.withdrawalsEnabled && !inFlow;
-  }
-
-  function modeLine(me) {
-    if (me.user.blocked) return rt('blockedMsg');
-    if (rewardLocked(me)) return rt('rewardSoon');
-
-    const user = me.user;
-    const status = user.deposit.status;
-
-    if (user.rewardActive) return rt('modeRewardOn');
-    if (user.mode === 'reward' && status === 'pending') return rt('modeDepositPending');
-    if (status === 'leaving') {
-      return rt('modeRefundPending').replace('{date}', user.deposit.refundDueBy ? new Date(user.deposit.refundDueBy).toLocaleDateString(interfaceLanguage) : '');
-    }
-    return user.mode === 'free' ? rt('modeFreeOn') : rt('modeChoose');
-  }
-
-  function setModeMessage(text, isSuccess) {
-    const box = document.getElementById('modeMessage');
-    box.textContent = text || '';
-    box.classList.toggle('hidden', !text);
-    box.classList.toggle('auth-success', Boolean(text && isSuccess));
-  }
-
-  function renderModePanel() {
-    const me = rewardsState.me;
-    if (!me) return;
-
-    const user = me.user;
-    const config = me.config;
-    const status = user.deposit.status;
-    const amount = formatMoney(config.depositCents);
-    const actions = document.getElementById('modeActions');
-    const instructions = document.getElementById('modeInstructions');
-    const fields = document.getElementById('depositFields');
-    const text = document.getElementById('modeText');
-
-    document.getElementById('modeTitle').textContent = rt('modeTitle');
-    actions.innerHTML = '';
-    actions.style.flexDirection = '';
-    actions.style.alignItems = '';
-    instructions.textContent = '';
-    fields.classList.add('hidden');
-
-    const addButton = function(label, handler, ghost) {
-      const element = document.createElement('button');
-      element.type = 'button';
-      element.textContent = label;
-      if (ghost) element.className = 'ghost-button';
-      element.addEventListener('click', handler);
-      actions.appendChild(element);
-    };
-
-    if (user.rewardActive) {
-      text.textContent = status === 'refunded'
-        ? rt('rewardOnRefunded')
-        : rt('rewardOnHeld').replace('{amount}', formatMoney(user.deposit.heldCents));
-      addButton(rt('leaveReward'), startLeave);
-    } else if (user.mode === 'reward' && status === 'pending') {
-      text.textContent = rt('depositPendingText');
-    } else if (status === 'leaving') {
-      text.textContent = rt('refundPendingText')
-        .replace('{amount}', formatMoney(user.deposit.heldCents))
-        .replace('{date}', user.deposit.refundDueBy ? new Date(user.deposit.refundDueBy).toLocaleDateString(interfaceLanguage) : '');
-    } else if (rewardLocked(me)) {
-      text.textContent = rt('rewardSoonText');
-    } else {
-      text.textContent = rt('chooseText').replace('{amount}', amount).replace('{days}', config.depositRefundDays);
-
-      if (showDepositForm) {
-        const methods = config.depositMethods || {};
-        const providers = config.depositProviders || {};
-
-        if (manualMethod) {
-          // Paiement à la main : l'élève donne la référence, l'administrateur confirme ensuite
-          fields.classList.remove('hidden');
-          document.getElementById('depMethodLabel').textContent = rt(MANUAL_LABEL_KEYS[manualMethod]);
-          instructions.textContent = config.depositInstructions || rt('noInstructions');
-          document.getElementById('depPayerName').placeholder = rt('depPayerName');
-          document.getElementById('depReference').placeholder = rt('depReference');
-          addButton(rt('depositPaid'), submitDeposit);
-          addButton(rt('back'), function() { manualMethod = null; setModeMessage(''); renderModePanel(); }, true);
-        } else {
-          // Liste de tous les moyens, chacun avec son état (activé ou désactivé par l'administrateur)
-          const options = [
-            ['stripe', rt(providers.stripeTest ? 'payStripeTest' : 'payStripe'), function() { startCheckout('stripe'); }],
-            ['paypal', rt('payPaypal'), function() { startCheckout('paypal'); }],
-            ['rib', rt('depMethodRib'), function() { manualMethod = 'rib'; setModeMessage(''); renderModePanel(); }],
-            ['western_union', rt('depMethodWU'), function() { manualMethod = 'western_union'; setModeMessage(''); renderModePanel(); }],
-            ['wafacash', rt('depMethodWafa'), function() { manualMethod = 'wafacash'; setModeMessage(''); renderModePanel(); }]
-          ];
-          const anyOn = options.some(function(option) { return Boolean(methods[option[0]]); });
-
-          instructions.textContent = rt(anyOn ? 'payChoose' : 'noMethods');
-          actions.style.flexDirection = 'column';
-          actions.style.alignItems = 'stretch';
-
-          options.forEach(function(option) {
-            const on = Boolean(methods[option[0]]);
-            const element = document.createElement('button');
-            const name = document.createElement('span');
-            const badge = document.createElement('span');
-
-            element.type = 'button';
-            element.className = on ? 'method-button' : 'method-button ghost-button';
-            element.disabled = !on;
-            name.textContent = option[1];
-            badge.className = on ? 'pm-badge' : 'pm-badge off';
-            badge.textContent = rt(on ? 'methodOn' : 'methodOff');
-            element.appendChild(name);
-            element.appendChild(badge);
-            if (on) element.addEventListener('click', option[2]);
-            actions.appendChild(element);
-          });
-
-          addButton(rt('back'), function() { showDepositForm = false; setModeMessage(''); renderModePanel(); }, true);
-        }
-      } else {
-        addButton(rt('playFree'), chooseFree, user.mode !== 'free');
-        addButton(rt('activateReward').replace('{amount}', amount), function() { showDepositForm = true; setModeMessage(''); renderModePanel(); });
-      }
-    }
-
-    addButton(rt('close'), closeModePanel, true);
-  }
-
-  function openModePanel() {
-    if (!rewardsState.me) return;
-    setModeMessage('');
-    showDepositForm = false;
-    manualMethod = null;
-    renderModePanel();
-    document.getElementById('modePanel').classList.remove('hidden');
-    document.getElementById('modePanel').scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
-
-  function closeModePanel() {
-    document.getElementById('modePanel').classList.add('hidden');
-  }
-
-  async function modeCall(path, body, successText) {
-    setModeMessage('');
-
-    try {
-      const result = await rewardsApi(path, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(body || {})
-      });
-
-      if (!result.ok) throw new Error(result.data.error || rt('withdrawFailed'));
-
-      rewardsState.me = result.data;
-      state.totalScore = result.data.user.points;
-      showDepositForm = false;
-      manualMethod = null;
-      refreshScoreDisplay();
-      updateAccountBar();
-      renderModePanel();
-      if (successText) setModeMessage(successText, true);
-      return true;
-    } catch (error) {
-      console.error('Mode error:', error);
-      setModeMessage(error.message || rt('withdrawFailed'));
-      return false;
-    }
-  }
-
-  async function startCheckout(provider) {
-    setModeMessage(rt('payRedirect'), true);
-
-    try {
-      const result = await rewardsApi('/deposit/checkout', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ provider: provider, returnUrl: location.origin + location.pathname })
-      });
-
-      if (!result.ok) throw new Error(result.data.error || rt('withdrawFailed'));
-
-      window.location.href = result.data.url;
-    } catch (error) {
-      console.error('Checkout error:', error);
-      setModeMessage(error.message || rt('withdrawFailed'));
-    }
-  }
 
   // Retour de Stripe / PayPal : le serveur vérifie le paiement chez le fournisseur
-  async function handleDepositReturn() {
-    const params = new URLSearchParams(location.search);
-    const kind = params.get('deposit');
-    const id = kind === 'stripe' ? params.get('session_id') : kind === 'paypal' ? params.get('token') : null;
-
-    history.replaceState(null, '', location.pathname);
-    openModePanel();
-
-    if (!id) {
-      setModeMessage(rt('depositCancelled'));
-      return;
-    }
-
-    setModeMessage(rt('depositChecking'), true);
-    await modeCall('/deposit/confirm', { provider: kind, id: id }, rt('depositActivated'));
-  }
-
-  function chooseFree() {
-    modeCall('/mode', { mode: 'free' }).then(function(ok) { if (ok) closeModePanel(); });
-  }
-
-  function submitDeposit() {
-    const payload = {
-      payMethod: manualMethod || '',
-      payerName: document.getElementById('depPayerName').value.trim(),
-      reference: document.getElementById('depReference').value.trim()
-    };
-
-    if (payload.payMethod.length < 2 || payload.payerName.length < 2 || payload.reference.length < 4) {
-      setModeMessage(rt('fieldsRequired'));
-      return;
-    }
-
-    modeCall('/deposit', payload, rt('depositSent'));
-  }
-
-  function startLeave() {
-    const user = rewardsState.me.user;
-
-    if (user.deposit.status === 'held' && (user.deposit.provider === 'stripe' || user.deposit.provider === 'paypal')) {
-      if (confirm(rt('leaveConfirmRefund').replace('{amount}', formatMoney(user.deposit.heldCents)))) {
-        modeCall('/leave', {}, rt('refundDone'));
-      }
-      return;
-    }
-
-    if (user.deposit.status === 'held') {
-      // Dépôt payé à la main : il faut des coordonnées pour le rembourser, on réutilise le formulaire de retrait
-      withdrawIntent = 'leave';
-      closeModePanel();
-      setWithdrawMessage('');
-      resetWithdrawForm();
-      renderRewardsUi();
-      document.getElementById('withdrawPanel').classList.remove('hidden');
-      document.getElementById('withdrawPanel').scrollIntoView({ behavior: 'smooth', block: 'start' });
-      return;
-    }
-
-    // Dépôt déjà rendu avec le premier retrait : on prévient qu'il n'y aura pas de nouveau remboursement
-    if (confirm(rt(user.deposit.status === 'refunded' ? 'leaveConfirmNoRefund' : 'leaveConfirm'))) {
-      modeCall('/leave', {});
-    }
-  }
-
-  function openWithdrawPanel() {
-    if (!rewardsState.me || !rewardsState.me.canWithdraw) return;
-    withdrawIntent = 'withdraw';
-    setWithdrawMessage('');
-    resetWithdrawForm();
-    renderRewardsUi();
-    document.getElementById('withdrawPanel').classList.remove('hidden');
-    document.getElementById('withdrawPanel').scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
-
-  function closeWithdrawPanel() {
-    withdrawIntent = 'withdraw';
-    document.getElementById('withdrawPanel').classList.add('hidden');
-  }
-
-  async function submitWithdraw() {
-    const confirmButton = document.getElementById('withdrawConfirm');
-    const payload = collectWithdrawPayload();
-
-    if (!payload) return;
-
-    confirmButton.disabled = true;
-
-    try {
-      const result = await rewardsApi(withdrawIntent === 'leave' ? '/leave' : '/withdraw', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      });
-
-      if (!result.ok) throw new Error(result.data.error || rt('withdrawFailed'));
-
-      rewardsState.me = result.data;
-      state.totalScore = result.data.user.points;
-      resetWithdrawForm();
-      refreshScoreDisplay();
-      updateAccountBar();
-      setWithdrawMessage(rt(withdrawIntent === 'leave' ? 'leaveSent' : 'requestSent'), true);
-    } catch (error) {
-      console.error('Withdraw error:', error);
-      setWithdrawMessage(error.message || rt('withdrawFailed'));
-      confirmButton.disabled = false;
-    }
-  }
 
   // Appelee a la connexion : le solde vient du serveur (plus de points ecrits par la page)
-  async function ensureUserDocument(user) {
-    const me = await loadRewards();
-    return { totalPoints: me.user.points };
-  }
 
   async function handleAuthSubmit(event) {
     event.preventDefault();
@@ -1581,30 +708,8 @@
 
   function updateAccountBar() {
     document.getElementById('guestBar').classList.toggle('hidden', Boolean(state.user));
-    if (!state.user) {
-      accountBar.classList.add('hidden');
-      document.getElementById('withdrawPanel').classList.add('hidden');
-      document.getElementById('modePanel').classList.add('hidden');
-      modePromptShown = false;
-      withdrawIntent = 'withdraw';
-      return;
-    }
-
-    accountEmail.textContent = state.user.email || '';
-    accountScore.textContent = String(state.totalScore);
-    accountBar.classList.remove('hidden');
-    renderRewardsUi();
-
-    if (rewardsState.me && !depositReturnHandled) {
-      depositReturnHandled = true;
-
-      if (new URLSearchParams(location.search).has('deposit')) {
-        modePromptShown = true;
-        handleDepositReturn();
-        return;
-      }
-    }
-
+    accountBar.classList.toggle('hidden', !state.user);
+    accountEmail.textContent = state.user ? (state.user.email || '') : '';
   }
 
   // Les points sont credites uniquement par le serveur (voir submitQuiz).
@@ -1612,42 +717,21 @@
   applyTranslations();
   showHome();
 
-  auth.onAuthStateChanged(async function(user) {
+  auth.onAuthStateChanged(function(user) {
     if (!user || !user.emailVerified) {
-      // Visiteur (ou compte non verifie) : Listening reste accessible, le reste demande une connexion
+      // Visiteur (ou compte non verifie) : Listening reste accessible, Speaking demande une connexion
       state.user = null;
-      state.totalScore = 0;
-      rewardsState.me = null;
       updateAccountBar();
-      if (['speaking', 'game', 'result'].includes(state.screen)) {
-        youtubePlayer.src = '';
-        showHome();
-      }
+      if (state.screen === 'speaking') showHome();
       return;
     }
-
-    try {
-      const data = await ensureUserDocument(user);
-
-      state.user = user;
-      state.totalScore = Number(data.totalPoints) || 0;
-
-      scoreDisplay.textContent = String(state.totalScore);
-      finalTotalScore.textContent = String(state.totalScore);
-
-      updateAccountBar();
-      applyTranslations();
-
-      if (state.screen === 'auth') {
-        const next = afterLogin;
-        afterLogin = null;
-        if (next) next(); else showHome();
-      }
-    } catch (error) {
-      console.error('Firestore error:', error);
-      state.user = null;
-      setAuthError(rt('loadError'));
-      showScreen('auth');
+    state.user = user;
+    updateAccountBar();
+    applyTranslations();
+    if (state.screen === 'auth') {
+      const next = afterLogin;
+      afterLogin = null;
+      if (next) next(); else showHome();
     }
   });
 
@@ -1655,219 +739,46 @@
   // SHOW SCREEN
   // =====================================================
 
-  function showScreen(
-    screen
-  ) {
-
-    authScreen.classList.add(
-      'hidden'
-    );
-
+  function showScreen(screen) {
+    authScreen.classList.add('hidden');
     infoPageScreen.classList.add('hidden');
     ieltsScreen.classList.add('hidden');
     document.getElementById('speakingScreen').classList.add('hidden');
-
-    gameScreen.classList.add(
-      'hidden'
-    );
-
-    resultScreen.classList.add(
-      'hidden'
-    );
-
-
-    if (screen === 'auth') {
-      authScreen.classList.remove('hidden');
-    }
-
-
-    if (screen === 'info') {
-      infoPageScreen.classList.remove('hidden');
-    }
-
-
-    if (screen === 'ielts') {
-      ieltsScreen.classList.remove('hidden');
-    }
-    if (screen === 'speaking') {
-      document.getElementById('speakingScreen').classList.remove('hidden');
-    }
-
-    if (screen === 'game') {
-
-      gameScreen.classList.remove(
-        'hidden'
-      );
-
-    }
-
-
-    if (screen === 'result') {
-
-      resultScreen.classList.remove(
-        'hidden'
-      );
-
-    }
-
-
-    state.screen =
-      screen;
-
-
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-
+    if (screen === 'auth') authScreen.classList.remove('hidden');
+    if (screen === 'info') infoPageScreen.classList.remove('hidden');
+    if (screen === 'ielts') ieltsScreen.classList.remove('hidden');
+    if (screen === 'speaking') document.getElementById('speakingScreen').classList.remove('hidden');
+    state.screen = screen;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
-
 
   // =====================================================
   // LANGUAGE
   // =====================================================
 
-
-
   // =====================================================
   // BACK TO LANGUAGE
   // =====================================================
-
-
 
   // =====================================================
   // CATEGORY
   // =====================================================
 
-
-
   // =====================================================
   // BACK TO CATEGORIES
   // =====================================================
-
-  function goBackToCategories() {
-    youtubePlayer.src = '';
-    state.currentVideo = null; state.questions = []; state.answers = []; state.submitted = false;
-    quizArea.classList.add('hidden');
-    showHome();
-  }
-
 
   // =====================================================
   // BACK TO QUIZ
   // =====================================================
 
-  function goBackToQuiz() {
-
-    if (
-      !state.currentVideo
-    ) {
-
-      goBackToCategories();
-
-      return;
-
-    }
-
-
-    showScreen(
-      'game'
-    );
-
-
-    quizArea.classList.remove(
-      'hidden'
-    );
-
-
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-
-  }
-
-
   // =====================================================
   // BROWSER / ANDROID BACK BUTTON
   // =====================================================
 
-  window.addEventListener(
-    'popstate',
-    function() {
-
-
-
-      if (
-        state.screen ===
-        'game'
-      ) {
-
-        goBackToCategories();
-
-        return;
-
-      }
-
-
-      if (
-        state.screen ===
-        'result'
-      ) {
-
-        goBackToQuiz();
-
-        return;
-
-      }
-
-    }
-  );
-
-
   // =====================================================
   // ERROR
   // =====================================================
-
-  function showVideoError(
-    message
-  ) {
-
-    videoError.textContent =
-      message;
-
-    videoError.classList.remove(
-      'hidden'
-    );
-
-  }
-
-
-  function hideVideoError() {
-
-    videoError.textContent =
-      '';
-
-    videoError.classList.add(
-      'hidden'
-    );
-
-  }
-
-
-  function showGlobalError(
-    message
-  ) {
-
-    globalError.textContent =
-      message;
-
-    globalError.classList.remove(
-      'hidden'
-    );
-
-  }
-
 
   // =====================================================
   // LOAD VIDEOS
@@ -1876,1151 +787,67 @@
   // Vidéo déjà validée par l'administrateur : aucun appel de recherche (économie d'API).
   // Renvoie la vidéo, 'none' (rien de neuf et la recherche en direct est fermée) ou null (continuer comme avant).
 
-
-
   // =====================================================
   // CHOOSE VIDEO
   // =====================================================
-
-
 
   // =====================================================
   // DISPLAY VIDEO
   // =====================================================
 
-  function displayVideo() {
-
-    if (
-      !state.currentVideo
-    ) {
-
-      return;
-
-    }
-
-
-    hideVideoError();
-
-
-    document
-      .getElementById(
-        'videoContent'
-      )
-      .classList.remove(
-        'hidden'
-      );
-
-
-    videoTitle.textContent =
-      state.currentVideo.title ||
-      'Video YouTube';
-
-
-    videoChannel.textContent =
-      state.currentVideo.channelTitle ||
-      '';
-
-
-    // -----------------------------------------------------
-    // VIDEO META
-    // -----------------------------------------------------
-
-    videoMeta.innerHTML =
-      '';
-
-
-    if (
-      state.currentVideo.durationFormatted
-    ) {
-
-      const durationBadge =
-        document.createElement(
-          'span'
-        );
-
-      durationBadge.className =
-        'meta-badge';
-
-      durationBadge.textContent =
-        'Duree : ' +
-        state.currentVideo.durationFormatted;
-
-      videoMeta.appendChild(
-        durationBadge
-      );
-
-    }
-
-
-    if (
-      state.currentVideo.captionAvailable
-    ) {
-
-      const captionBadge =
-        document.createElement(
-          'span'
-        );
-
-      captionBadge.className =
-        'meta-badge';
-
-      captionBadge.textContent =
-        'Sous-titres disponibles';
-
-      videoMeta.appendChild(
-        captionBadge
-      );
-
-    }
-
-
-    youtubePlayer.src =
-      'https://www.youtube.com/embed/' +
-      encodeURIComponent(
-        state.currentVideo.videoId
-      );
-
-
-    quizArea.classList.add(
-      'hidden'
-    );
-
-
-    const startButton =
-      document.getElementById(
-        'startQuizButton'
-      );
-
-
-    startButton.classList.remove(
-      'hidden'
-    );
-
-
-    startButton.disabled =
-      false;
-
-
-    startButton.textContent =
-      'Commencer le quiz';
-
-  }
-
-
   // =====================================================
   // START QUIZ
   // =====================================================
 
-  const QUIZ_QUESTION_COUNT = 10;
-  const QUIZ_PASS_THRESHOLD = 8; // 8/10 bonnes reponses = 1 point
-
-  async function startQuiz() {
-    if (!requireLogin(function() { showScreen('game'); })) return;
-
-    if (
-      !state.currentVideo
-    ) {
-
-      showGlobalError(
-        'Aucune video selectionnee.'
-      );
-
-      return;
-
-    }
-
-
-    const button =
-      document.getElementById(
-        'startQuizButton'
-      );
-
-
-    button.disabled =
-      true;
-
-
-    button.textContent =
-      'Preparation du quiz...';
-
-
-    hideVideoError();
-
-
-    try {
-
-      const url =
-        API_BASE +
-        '/api/youtube/questions' +
-        '?videoId=' +
-        encodeURIComponent(
-          state.currentVideo.videoId
-        ) +
-        '&language=' +
-        encodeURIComponent(
-          state.language
-        ) +
-        '&count=' + QUIZ_QUESTION_COUNT +
-        '&category=' + encodeURIComponent(state.category || '') +
-        (state.mode === 'ielts' ? '&mode=ielts' : '');
-
-
-      console.log(
-        'Loading questions:',
-        url
-      );
-
-
-      const response = await authedFetch(url);
-
-
-      const data =
-        await response.json();
-
-
-      console.log(
-        'Questions response:',
-        data
-      );
-
-
-      if (
-        !response.ok ||
-        !data.ok
-      ) {
-
-        throw new Error(data.code === 'daily_limit' ? rt('dailyLimit') : data.code === 'account_blocked' ? rt('blockedMsg') : data.code === 'library_only' ? rt('libraryEmpty') : (data.error || 'Impossible de generer le quiz.'));
-
-      }
-
-
-      if (
-        !Array.isArray(
-          data.questions
-        ) ||
-        data.questions.length < 4
-      ) {
-
-        throw new Error(
-          'Le serveur doit retourner au moins 4 questions (10 attendues).'
-        );
-
-      }
-
-
-      if (!data.quizId) {
-        throw new Error('Reponse du serveur invalide (quiz non securise).');
-      }
-
-      state.quizId = data.quizId;
-
-      if (rewardsState.me && data.daily) {
-        rewardsState.me.today = data.daily;
-        renderRewardsUi();
-      }
-
-      const note = document.getElementById('rewardNote');
-      note.textContent = data.rewardEligible === false ? rt('alreadyPlayed') : '';
-      note.classList.toggle('hidden', data.rewardEligible !== false);
-
-      state.questions = data.questions.slice(0, QUIZ_QUESTION_COUNT);
-
-
-      state.answers =
-        new Array(
-          state.questions.length
-        ).fill(null);
-
-
-      state.submitted =
-        false;
-
-
-      renderQuiz();
-
-
-      quizArea.classList.remove(
-        'hidden'
-      );
-
-
-      button.classList.add(
-        'hidden'
-      );
-
-
-      quizArea.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-
-
-    } catch (error) {
-
-      console.error(
-        'startQuiz error:',
-        error
-      );
-
-
-      showVideoError(
-        error.message ||
-        'Erreur pendant la generation du quiz.'
-      );
-
-
-      button.disabled =
-        false;
-
-
-    } finally {
-
-      button.textContent =
-        'Commencer le quiz';
-
-    }
-
-  }
-
+   // 8/10 bonnes reponses = 1 point
 
   // =====================================================
   // RENDER QUIZ
   // =====================================================
 
-  function renderQuiz() {
-
-    // Nouveau quiz : on remet le bouton "Valider" dans son état initial
-    const submitBtn = document.getElementById('submitQuizButton');
-    if (submitBtn) {
-      submitBtn.disabled = false;
-      submitBtn.classList.remove('hidden');
-    }
-
-    questionsContainer.innerHTML =
-      '';
-
-
-    for (
-      let i = 0;
-      i < state.questions.length;
-      i++
-    ) {
-
-      const question =
-        state.questions[i];
-
-
-      const questionDiv =
-        document.createElement(
-          'div'
-        );
-
-
-      questionDiv.className =
-        'question';
-
-
-      const numberDiv =
-        document.createElement(
-          'div'
-        );
-
-
-      numberDiv.className =
-        'question-number';
-
-
-      numberDiv.textContent =
-        'Question ' +
-        (i + 1) +
-        ' / ' +
-        state.questions.length;
-
-
-      const textDiv =
-        document.createElement(
-          'div'
-        );
-
-
-      textDiv.className =
-        'question-text';
-
-
-      textDiv.textContent =
-        question.question;
-
-
-      questionDiv.appendChild(
-        numberDiv
-      );
-
-
-      questionDiv.appendChild(
-        textDiv
-      );
-
-
-      for (
-        let j = 0;
-        j < question.choices.length;
-        j++
-      ) {
-
-        const choiceButton =
-          document.createElement(
-            'button'
-          );
-
-
-        choiceButton.className =
-          'choice-button';
-
-
-        choiceButton.textContent =
-          question.choices[j];
-
-
-        choiceButton.dataset.question =
-          String(i);
-
-
-        choiceButton.dataset.choice =
-          String(j);
-
-
-        choiceButton.onclick =
-          function() {
-
-            selectAnswer(
-              i,
-              j
-            );
-
-          };
-
-
-        questionDiv.appendChild(
-          choiceButton
-        );
-
-      }
-
-
-      questionsContainer.appendChild(
-        questionDiv
-      );
-
-    }
-
-
-    updateProgress();
-
-  }
-
-
   // =====================================================
   // SELECT ANSWER
   // =====================================================
-
-  function selectAnswer(
-    questionIndex,
-    choiceIndex
-  ) {
-
-    if (
-      state.submitted
-    ) {
-
-      return;
-
-    }
-
-
-    state.answers[
-      questionIndex
-    ] =
-      choiceIndex;
-
-
-    const buttons =
-      document.querySelectorAll(
-        '[data-question="' +
-        questionIndex +
-        '"]'
-      );
-
-
-    buttons.forEach(
-      function(button) {
-
-        button.classList.remove(
-          'selected'
-        );
-
-      }
-    );
-
-
-    const selected =
-      document.querySelector(
-        '[data-question="' +
-        questionIndex +
-        '"][data-choice="' +
-        choiceIndex +
-        '"]'
-      );
-
-
-    if (selected) {
-
-      selected.classList.add(
-        'selected'
-      );
-
-    }
-
-
-    updateProgress();
-
-  }
-
 
   // =====================================================
   // PROGRESS
   // =====================================================
 
-  function updateProgress() {
-
-    const answered =
-      state.answers.filter(
-        function(answer) {
-
-          return (
-            answer !== null
-          );
-
-        }
-      ).length;
-
-
-    const total =
-      state.questions.length;
-
-
-    const percentage =
-      total > 0
-        ? (
-            answered /
-            total
-          ) * 100
-        : 0;
-
-
-    progressBar.style.width =
-      percentage + '%';
-
-  }
-
-
   // =====================================================
   // SUBMIT QUIZ
   // =====================================================
-
-  async function submitQuiz() {
-
-    if (state.submitted) {
-      return;
-    }
-
-    const unanswered = state.answers.some(function(answer) { return answer === null; });
-
-    if (unanswered) {
-      alert('Tu dois repondre a toutes les questions (' + state.questions.length + ') avant de valider.');
-      return;
-    }
-
-    state.submitted = true;
-
-    const submitButton = document.getElementById('submitQuizButton');
-    submitButton.disabled = true;
-
-    // C'est le SERVEUR qui corrige et qui credite le point : la page ne connait pas les bonnes reponses
-    let result;
-
-    try {
-      const response = await rewardsApi('/submit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ quizId: state.quizId, answers: state.answers })
-      });
-
-      if (!response.ok) {
-        throw new Error(response.data.code === 'quiz_expired' ? rt('quizExpired') : response.data.code === 'account_blocked' ? rt('blockedMsg') : (response.data.error || rt('submitError')));
-      }
-
-      result = response.data;
-    } catch (error) {
-      console.error('submitQuiz error:', error);
-      state.submitted = false;
-      submitButton.disabled = false;
-      alert(error.message || rt('submitError'));
-      return;
-    }
-
-    for (let i = 0; i < state.questions.length; i++) {
-      showQuestionCorrection(i, state.answers[i], result.correctAnswers[i]);
-    }
-
-    const correct = result.correct;
-    const total = result.total;
-    const needed = result.needed;
-    const points = result.awarded ? 1 : 0;
-
-    rewardsState.me = result;
-    state.totalScore = result.user.points;
-
-    refreshScoreDisplay();
-    updateAccountBar();
-
-    roundScore.textContent = String(points);
-
-    if (result.passed && result.awarded) {
-      resultMessage.textContent = t('perfect').replace('4/4', correct + '/' + total);
-      resultMessage.className = 'result-success';
-    } else if (result.passed) {
-      resultMessage.textContent = rt(result.reason === 'no_reward_mode' ? 'freePlayResult' : 'passedNoPoint');
-      resultMessage.className = 'result-success';
-    } else {
-      resultMessage.textContent = correct + '/' + total + ' — ' + t('notPerfect').replace(/\b4\b/g, String(needed));
-      resultMessage.className = 'result-fail';
-    }
-
-    setTimeout(
-      function() {
-        prepareEvaluation();
-        showScreen('result');
-      },
-      1500
-    );
-
-  }
-
 
   // =====================================================
   // QUESTION CORRECTION
   // =====================================================
 
-  function showQuestionCorrection(
-    questionIndex,
-    userAnswer,
-    correctAnswer
-  ) {
-
-    const buttons =
-      document.querySelectorAll(
-        '[data-question="' +
-        questionIndex +
-        '"]'
-      );
-
-
-    buttons.forEach(
-      function(button) {
-
-        const choice =
-          Number(
-            button.dataset.choice
-          );
-
-
-        button.classList.remove(
-          'selected'
-        );
-
-
-        if (
-          choice ===
-          correctAnswer
-        ) {
-
-          button.classList.add(
-            'correct'
-          );
-
-        }
-
-
-        if (
-          choice === userAnswer &&
-          choice !== correctAnswer
-        ) {
-
-          button.classList.add(
-            'wrong'
-          );
-
-        }
-
-      }
-    );
-
-  }
-
-
   // =====================================================
   // PREPARE EVALUATION
   // =====================================================
-
-  function prepareEvaluation() {
-
-    state.evaluation = {
-
-      like:
-        null,
-
-      length:
-        null
-
-    };
-
-
-    document
-      .getElementById(
-        'likeButton'
-      )
-      .classList.remove(
-        'selected'
-      );
-
-
-    document
-      .getElementById(
-        'dislikeButton'
-      )
-      .classList.remove(
-        'selected'
-      );
-
-
-    document
-      .getElementById(
-        'lengthNo'
-      )
-      .classList.remove(
-        'selected'
-      );
-
-
-    document
-      .getElementById(
-        'lengthMedium'
-      )
-      .classList.remove(
-        'selected'
-      );
-
-
-    document
-      .getElementById(
-        'lengthYes'
-      )
-      .classList.remove(
-        'selected'
-      );
-
-
-    document
-      .getElementById(
-        'evaluationThanks'
-      )
-      .classList.add(
-        'hidden'
-      );
-
-  }
-
 
   // =====================================================
   // RATE VIDEO
   // =====================================================
 
-  function rateVideo(
-    rating
-  ) {
-
-    if (
-      !state.currentVideo
-    ) {
-
-      return;
-
-    }
-
-
-    state.evaluation.like =
-      rating;
-
-
-    document
-      .getElementById(
-        'likeButton'
-      )
-      .classList.remove(
-        'selected'
-      );
-
-
-    document
-      .getElementById(
-        'dislikeButton'
-      )
-      .classList.remove(
-        'selected'
-      );
-
-
-    if (
-      rating === 'like'
-    ) {
-
-      document
-        .getElementById(
-          'likeButton'
-        )
-        .classList.add(
-          'selected'
-        );
-
-    }
-
-
-    if (
-      rating === 'dislike'
-    ) {
-
-      document
-        .getElementById(
-          'dislikeButton'
-        )
-        .classList.add(
-          'selected'
-        );
-
-    }
-
-
-    saveLocalEvaluation();
-
-
-    showEvaluationThanks();
-
-  }
-
-
   // =====================================================
   // RATE LENGTH
   // =====================================================
-
-  function rateVideoLength(
-    length
-  ) {
-
-    if (
-      !state.currentVideo
-    ) {
-
-      return;
-
-    }
-
-
-    state.evaluation.length =
-      length;
-
-
-    document
-      .getElementById(
-        'lengthNo'
-      )
-      .classList.remove(
-        'selected'
-      );
-
-
-    document
-      .getElementById(
-        'lengthMedium'
-      )
-      .classList.remove(
-        'selected'
-      );
-
-
-    document
-      .getElementById(
-        'lengthYes'
-      )
-      .classList.remove(
-        'selected'
-      );
-
-
-    if (
-      length === 'no'
-    ) {
-
-      document
-        .getElementById(
-          'lengthNo'
-        )
-        .classList.add(
-          'selected'
-        );
-
-    }
-
-
-    if (
-      length === 'medium'
-    ) {
-
-      document
-        .getElementById(
-          'lengthMedium'
-        )
-        .classList.add(
-          'selected'
-        );
-
-    }
-
-
-    if (
-      length === 'yes'
-    ) {
-
-      document
-        .getElementById(
-          'lengthYes'
-        )
-        .classList.add(
-          'selected'
-        );
-
-    }
-
-
-    saveLocalEvaluation();
-
-
-    showEvaluationThanks();
-
-  }
-
 
   // =====================================================
   // EVALUATION MESSAGE
   // =====================================================
 
-  function showEvaluationThanks() {
-
-    document
-      .getElementById(
-        'evaluationThanks'
-      )
-      .classList.remove(
-        'hidden'
-      );
-
-  }
-
-
   // =====================================================
   // LOCAL EVALUATION
   // =====================================================
-
-  function saveLocalEvaluation() {
-
-    if (
-      !state.currentVideo
-    ) {
-
-      return;
-
-    }
-
-
-    const videoId =
-      state.currentVideo.videoId;
-
-
-    let evaluations = {};
-
-
-    try {
-
-      evaluations =
-        JSON.parse(
-          localStorage.getItem(
-            'aivq_video_evaluations'
-          ) || '{}'
-        );
-
-    } catch (error) {
-
-      evaluations =
-        {};
-
-    }
-
-
-    if (
-      !evaluations[videoId]
-    ) {
-
-      evaluations[videoId] = {
-
-        videoId:
-          videoId,
-
-        title:
-          state.currentVideo.title ||
-          '',
-
-        category:
-          state.category,
-
-        language:
-          state.language,
-
-        likes:
-          0,
-
-        dislikes:
-          0,
-
-        tooLong:
-          0,
-
-        acceptableLength:
-          0,
-
-        goodLength:
-          0,
-
-        updatedAt:
-          Date.now()
-
-      };
-
-    }
-
-
-    const item =
-      evaluations[videoId];
-
-
-    /*
-     * On evite de compter plusieurs fois
-     * le meme clic.
-     */
-
-    if (
-      state.evaluation.like ===
-      'like'
-    ) {
-
-      item.likes = 1;
-
-    }
-
-
-    if (
-      state.evaluation.like ===
-      'dislike'
-    ) {
-
-      item.dislikes = 1;
-
-    }
-
-
-    if (
-      state.evaluation.length ===
-      'yes'
-    ) {
-
-      item.tooLong = 1;
-
-    }
-
-
-    if (
-      state.evaluation.length ===
-      'medium'
-    ) {
-
-      item.acceptableLength = 1;
-
-    }
-
-
-    if (
-      state.evaluation.length ===
-      'no'
-    ) {
-
-      item.goodLength = 1;
-
-    }
-
-
-    item.updatedAt =
-      Date.now();
-
-
-    try {
-
-      localStorage.setItem(
-        'aivq_video_evaluations',
-        JSON.stringify(
-          evaluations
-        )
-      );
-
-    } catch (error) {
-
-      console.error(
-        'Unable to save local evaluation:',
-        error
-      );
-
-    }
-
-  }
-
 
   // =====================================================
   // NEXT VIDEO
   // =====================================================
 
-  async function nextVideo() {
-    resultScreen.classList.add('hidden');
-    youtubePlayer.src = '';
-    state.currentVideo = null; state.questions = []; state.answers = []; state.submitted = false;
-    state.evaluation = { like: null, length: null };
-    quizArea.classList.add('hidden');
-    showHome();
-  }
-
-
   // =====================================================
   // INITIAL SCORE
   // =====================================================
-
-  scoreDisplay.textContent =
-    '0';
 
 </script>
 
